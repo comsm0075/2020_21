@@ -1,0 +1,58 @@
+
+I downloaded the nexflix data from
+
+https://www.kaggle.com/netflix-inc/netflix-prize-data?select=combined_data_1.txt
+
+It isn't included here since it is huge; I only processed the "1"
+subset on the assumption the other three wouldn't be any different as
+far as this crude statistic is concerned.
+
+I used
+
+awk -F, '{if($2!=""){a[$2]+=1;b++}}END{for(i=1;i<=5;i++){print a[i]/b}}' < combined_data_1.txt 
+
+to get
+
+0.0464869
+0.101401
+0.287031
+0.336153
+0.228928
+
+which gives the percent of ratings that are 1 / 2 / 3 / 4 / 5 stars
+
+I then deleted all the :'s using
+
+sed 's/://g' < combined_data_1.txt > data.txt
+
+I worked out the average rating per movie by
+
+ awk -F, '{if($2==""){i=$1}else{a[i]+=$2;b[i]+=1}}END{print i;for(j=1;j<=i;j++){print a[j]/b[j]}}' < data.txt > movie.txt
+
+then
+
+awk -F. '{a[$1]+=1;b+=1}END{for(i=1;i<5;i++){print a[i]/b}}' < movie.txt
+
+gives the rounded down average star values which are
+
+0.0162222
+0.309556
+0.617333
+0.0566667
+
+I also used
+
+awk '{print $1" "NR}' < movie.txt | sort | tail
+awk '{print $1" "NR}' < movie.txt | sort | head
+
+to pick out the best and worst
+
+Avia Vampire Hunter
+
+and
+
+Lost: Season 1
+Ghost in the Shell: Stand Alone Complex: 2nd Gig
+Hedwig and the Angry Inch
+
+I ignored the first two since they aren't really movies
