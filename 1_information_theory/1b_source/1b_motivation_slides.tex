@@ -25,11 +25,15 @@
 \newcommand{\cred}{\color{red}}
 \newcommand{\cblu}{\color{blue}}
 
+\newcommand{\sm}{\color{reddish}$}
+\newcommand{\fm}{$\color{black}}
+
+
 \usepackage{tikz}
 \usetikzlibrary{arrows,decorations.markings,positioning}
 \usepackage{epstopdf}
 
-\title[1b: Information Theory lecture 1]{1b: Information Theory lecture 1}
+\title[1b Motivating Shannons Entropy: lecture 1]{1b: Information Theory lecture 1}
 \author{COMSM0075 Information Processing and Brain}
 \institute{\texttt{comsm0075.github.io}}
 \date{September 2020}
@@ -40,9 +44,22 @@
 
 
 \begin{frame}{Information Theory}
-\begin{center}  
+\begin{quote}  
 The theory of information is a theory of communication.
-\end{center}
+\end{quote}
+\end{frame}
+
+
+\begin{frame}{a theory of communication}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[rectangle,draw,minimum size=2cm](source){source};
+    \node[rectangle, minimum size=2cm,right = 1.5cm of source, draw](channel){channel};
+    \node[rectangle, right = 1.5cm of channel,draw,minimum size=2cm](receiver){receiver};
+    \draw(source) edge[->,thick] (channel);
+    \draw(channel) edge[->,thick] (receiver);
+  \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 
@@ -157,6 +174,44 @@ The theory of information is a theory of communication.
   \end{center}
 \end{frame}
 
+\begin{frame}{the fable of Stefan}
+  \begin{center}
+\includegraphics[width=5cm]{boring_man.jpg}
+\end{center}
+  \end{frame}
+
+
+\begin{frame}{a theory of communication}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[rectangle,draw,minimum size=2cm](source){economy };
+    \node[rectangle, minimum size=2cm,right = 1.5cm of source, draw](channel){Stefan};
+    \node[rectangle, right = 1.5cm of channel,draw,minimum size=2cm](receiver){me};
+    \draw(source) edge[->,thick] (channel);
+    \draw(channel) edge[->,thick] (receiver);
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{a theory of communication}
+  \begin{quote}
+    The theory of information starts with an attempt to allow us to
+quantify the informativeness of information, but not its salience or
+validity.
+  \end{quote}
+  \end{frame}
+
+\begin{frame}{Shannon's entropy}
+  For a finite discrete distribution with random variable \sm X\fm,
+  possible outcomes \sm\{x_1,x_2,\ldots x_n\}\in\mathcal{X}\fm and a
+  probability mass function \sm p_X\fm giving probabilities \sm p_X(x_i)\fm, the
+  entropy is
+\crish
+  $$
+H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}
+  $$
+\cbla
+\end{frame}
 
 \end{document}
 
