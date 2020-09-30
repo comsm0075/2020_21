@@ -7,8 +7,8 @@ Department of Computer Science [School of Computer Science, Electrical
 and Electronic Engineering, and Engineering Mathematics], Faculty of
 Engineering, University of Bristol.
 
-You should go to the io page for links to the reddit and to the 2018-19 version of this unit:
-[comsm0034.github.io](http://comsm0034.github.io "unit homepage") 
+You should go to the io page for more info:
+[comsm0075.github.io](https://comsm0075.github.io/ "unit homepage") 
 
 TAs: Joe Pemberton and Dabal Pedamonti.
 
@@ -37,19 +37,14 @@ Machine/statistical Learning:
 
 ### Draft schedule
 
-#### Conor (weeks 1-5):
+#### Conor (weeks 1-3):
 
 * Lectures 1-3: Information theory
 * Lectures 4-5: Statistical theory
 * Lectures 6-9: Probabilistic brain
 
-#### Guest lecturer (week 5):
+#### Rui (weeks 4-7): Neural circuits and learning
 
-* Lecture 10: Guest lecture on the probabilistic brain (Laurence Aitchison)
-
-#### Rui (weeks 6-10): Neural circuits and learning
-
-##### Office hours: Tuesdays 12-2pm @ 3.26 MVB
 
 * Lecture 11: Different forms of learning
 * Lecture 12: Visual System: deep learning?
@@ -59,20 +54,16 @@ Machine/statistical Learning:
 * Lecture 16: Recurrent neural networks
 * Lecture 17: RNNs and Brain vs machine
 
-Note: Labs for CW2 on weeks 7 will start with lecture in the first hour.
+#### Guest lecturers (week 8):
 
-Note2: There *wont* be a lecture during the lab on week 10 so that you can focus on CW2.
-
-#### Cian (week 11):
-
-* Lectures 18-19: Neural Data Analysis
+...TBC
 
 #### Revision week (week 12):
 
 * Lecture 20: Conor's revision
 * Lecture 21: Rui/Cian revision
 
-#### Coursework:
+#### Formative coursework:
 
 * CW1: Problem sheet on probabilities
 * CW2: Coursework on learning (labs on week 7 (12/11) and week 10 (03/12))
