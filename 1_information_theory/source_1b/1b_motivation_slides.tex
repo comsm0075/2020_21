@@ -18,6 +18,7 @@
 \usepackage{graphicx}
 \usepackage{pstricks}
 
+\usepackage{amsmath}
 \setbeamertemplate{navigation symbols}{}
 
 \newcommand{\crish}{\color{reddish}}
@@ -221,6 +222,73 @@ validity.
 H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}
   $$
 \cbla
+\end{frame}
+
+\begin{frame}{example calculation - netflix}
+  \begin{center}
+    \begin{tabular}{l|l}
+      \hline
+      1 star&0.016\\
+      2 star&0.310\\
+      3 star&0.627\\
+      4 star&0.057\\
+      \hline
+    \end{tabular}
+  \end{center}
+  \crish
+  \begin{multline*}
+    H(X)=-0.016\log_2{0.016}-0.31\log_2{0.31}\\
+    -0.627\log_2{0.627}-0.057\log_2{0.057}\approx 1.28
+\end{multline*}
+\cbla
+\end{frame}  
+
+
+\begin{frame}{example calculation - netflix}
+  Imagine instead all rankings are equally likely
+    \begin{center}
+    \begin{tabular}{l|l}
+      \hline
+      1 star&0.25\\
+      2 star&0.25\\
+      3 star&0.25\\
+      4 star&0.25\\
+      \hline
+    \end{tabular}
+  \end{center}
+  \crish
+  $$
+H(X)=-4\times 0.25\log_2{0.25}=2
+  $$
+\cbla
+\end{frame}  
+
+
+\begin{frame}{example calculation - netflix}
+  Imagine instead everything gets one stars, the Stefan-like case
+    \begin{center}
+    \begin{tabular}{l|l}
+      \hline
+      1 star&1\\
+      2 star&0\\
+      3 star&0\\
+      4 star&0\\
+      \hline
+    \end{tabular}
+  \end{center}
+  \crish
+  $$
+H(X)=-\log_2{1}=0
+  $$
+\cbla
+\end{frame}
+
+\begin{frame}{example calculation - netflix}
+  \begin{itemize}
+  \item deterministic \crish $H(X)=0$\cbla
+  \item actual \crish $H(X)\approx 1.28$\cbla
+  \item completely random \crish $H(X)=2$\cbla
+\end{itemize}
 \end{frame}
 
 \end{document}
