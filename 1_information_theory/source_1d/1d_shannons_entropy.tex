@@ -142,10 +142,10 @@ H(X)=-\cblu\langle\crish \log_2{p_X(X)}\cblu\rangle\crish
 The mean of a distribution
 \crish
 $$
-\langle x\rangle = \sum_{x_i\in \mathcal{X}}{p_X(x_i)x_i}
+\langle x\rangle = \sum_{x_i\in \mathcal{X}}{p_X(x_i)\cblu{}x_i\crish{}}
 $$
 \cbla
-only works if the \sm x\fm s live in a vector space. 
+only works if the \cblu $x_i$\cbla{} live in a vector space. 
   \end{frame}
 
 
@@ -243,7 +243,7 @@ called source coding.
 \end{frame}
 
 \begin{frame}{source coding}
-  Imagine storing a long sequence of the letters \letter{A}, \letter{B}, \letter{C} and \letter{D} as binary.
+  Consider storing a long sequence of the letters \letter{A}, \letter{B}, \letter{C}{} and \letter{D}{} as binary.
   \begin{quote}
     \letter{AABACBDA}$\ldots$
     \end{quote}
@@ -254,7 +254,7 @@ called source coding.
 \begin{tabular}{cccc}
 \letter{A}&\letter{B}&\letter{C}&\letter{D}\\
 \hline\cred
-00&01&\cred 10&\cred 11
+00&\cred 01&\cred 10&\cred 11
 \cbla\end{tabular}
 \end{center}
 \end{frame}
@@ -456,6 +456,29 @@ eighth of the time.
 \end{center}
 \end{frame}  
 
+
+\begin{frame}{here is a better code - prefix free code}
+\begin{center}
+\begin{tabular}{cccc}
+\letter{A}&\letter{B}&\letter{C}&\letter{D}\\
+\hline
+\cgre{0}&\binary{10}&\binary{110}&\binary{111}
+\end{tabular}
+\end{center}
+\end{frame}  
+
+
+\begin{frame}{here is a better code - prefix free code}
+\begin{center}
+\begin{tabular}{cccc}
+\letter{A}&\letter{B}&\letter{C}&\letter{D}\\
+\hline
+\binary{0}&\cgre{10}&\binary{110}&\binary{111}
+\end{tabular}
+\end{center}
+\end{frame}  
+
+
 \begin{frame}{here is a better code}
 \begin{center}
 \begin{tabular}{cccc}
@@ -619,7 +642,6 @@ $$
 
 
 \begin{frame}{The source coding theorem}
-Roughly
   \crish
   $$
 H(X)\le L < H(X)+1
