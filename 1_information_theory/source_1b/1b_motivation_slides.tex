@@ -34,7 +34,7 @@
 \usetikzlibrary{arrows,decorations.markings,positioning}
 \usepackage{epstopdf}
 
-\title[1b Motivating Shannons Entropy: lecture 1]{1b: Information Theory lecture 1}
+\title[Motivating Shannon's Entropy: lecture 1]{Information Theory lecture 1}
 \author{COMSM0075 Information Processing and Brain}
 \institute{\texttt{comsm0075.github.io}}
 \date{September 2020}
@@ -63,24 +63,31 @@ The theory of information is a theory of communication.
   \end{center}
 \end{frame}
 
-
-\begin{frame}{we start by understanding randomness}
+\begin{frame}{randomness}
 \begin{center}  
-  \begin{center}
     \includegraphics[width=10cm]{geiger_counter.jpg}
-  \end{center}
 \end{center}
   \vfill
 \tiny{Image from wikipedia.}
 \end{frame}
 
+\begin{frame}{unexpectedness}
+\begin{center}  
+\Huge{2020}
+\end{center}
+\end{frame}
 
-
-\begin{frame}{film  recommendations are bad}
- \begin{center}
-    \includegraphics[width=10cm]{netflix_recommends.png}
- \end{center}
- \end{frame}
+\begin{frame}{a theory of communication}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[rectangle,draw,minimum size=2cm](source){source};
+    \node[rectangle, minimum size=2cm,right = 1.5cm of source, draw](channel){channel};
+    \node[rectangle, right = 1.5cm of channel,draw,minimum size=2cm](receiver){receiver};
+    \draw(source) edge[->,thick] (channel);
+    \draw(channel) edge[->,thick] (receiver);
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
 
 \begin{frame}{film  recommendations}
   \begin{center}
@@ -88,6 +95,43 @@ The theory of information is a theory of communication.
   \end{center}
 \end{frame}
 
+\begin{frame}{film  recommendations are bad}
+ \begin{center}
+    \includegraphics[width=10cm]{netflix_recommends.png}
+ \end{center}
+ \end{frame}
+
+\begin{frame}{a theory of communication}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[rectangle,draw,minimum size=2cm](source){films};
+    \node[rectangle, minimum size=2cm,right = 1.5cm of source, draw](channel){netflix};
+    \node[rectangle, right = 1.5cm of channel,draw,minimum size=2cm](receiver){me};
+    \draw(source) edge[->,thick] (channel);
+    \draw(channel) edge[->,thick] (receiver);
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{a theory of communication}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[rectangle,draw,minimum size=2cm](source){films};
+    \node[rectangle, minimum size=2cm,right = 1.5cm of source, draw](channel){
+    \includegraphics[width=1.75cm]{netflix_recommends.png}
+    };
+    \node[rectangle, right = 1.5cm of channel,draw,minimum size=2cm](receiver){me};
+    \draw(source) edge[->,thick] (channel);
+    \draw(channel) edge[->,thick] (receiver);
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{film  recommendations are bad}
+ \begin{center}
+    \includegraphics[width=10cm]{netflix_recommends.png}
+ \end{center}
+ \end{frame}
 
 \begin{frame}{Netflix Prize}
   \begin{center}
@@ -106,12 +150,17 @@ The theory of information is a theory of communication.
 \tiny{Bennett, James, and Stan Lanning. "The netflix prize." Proceedings of KDD cup and workshop. Vol. 2007. 2007.}
 \end{frame}
 
-
-\begin{frame}{Netflix Prize}
+\begin{frame}{film  recommendations}
   \begin{center}
-    \includegraphics[width=10cm]{napoleon.jpg}
+    \includegraphics[width=10cm]{stars.png}
   \end{center}
 \end{frame}
+
+%\begin{frame}{Netflix Prize}
+%  \begin{center}
+%    \includegraphics[width=10cm]{napoleon.jpg}
+%  \end{center}
+%\end{frame}
 
 \begin{frame}{average star ratings}
   \begin{center}
@@ -214,8 +263,32 @@ validity.
 
 \begin{frame}{Shannon's entropy}
   For a finite discrete distribution with random variable \sm X\fm,
-  possible outcomes \sm\{x_1,x_2,\ldots x_n\}\in\mathcal{X}\fm and a
-  probability mass function \sm p_X\fm giving probabilities \sm p_X(x_i)\fm, the
+  possible outcomes \sm\{x_1,x_2,\ldots x_n\}\in\mathcal{X}\fm{} and a
+  probability mass function \sm p_X\fm{} giving probabilities \sm p_X(x_i)\fm, the
+  entropy is
+\crish
+  $$
+H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}
+  $$
+\cbla
+\end{frame}
+
+\begin{frame}{Shannon's entropy}
+  For a finite discrete distribution with random variable \sm X\fm,
+  possible outcomes \cblu $\{x_1,x_2,\ldots x_n\}\in\mathcal{X}$\cbla{} and a
+  probability mass function \sm p_X\fm{} giving probabilities \sm p_X(x_i)\fm, the
+  entropy is
+\crish
+  $$
+H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}
+  $$
+\cbla
+\end{frame}
+
+\begin{frame}{Shannon's entropy}
+  For a finite discrete distribution with random variable \sm X\fm,
+  possible outcomes \sm\{x_1,x_2,\ldots x_n\}\in\mathcal{X}\fm{} and a
+  probability mass function \sm p_X\fm{} giving probabilities \cblu$ p_X(x_i)$\cbla, the
   entropy is
 \crish
   $$
@@ -290,6 +363,21 @@ H(X)=-\log_2{1}=0
   \item completely random \crish $H(X)=2$\cbla
 \end{itemize}
 \end{frame}
+
+\begin{frame}{0 or 1.28 or 2}
+  \begin{center}
+  \begin{tikzpicture}
+    \node[rectangle,draw,minimum size=2cm](source){films};
+    \node[rectangle, minimum size=2cm,right = 1.5cm of source, draw](channel){
+    \includegraphics[width=1.75cm]{stars.png}
+    };
+    \node[rectangle, right = 1.5cm of channel,draw,minimum size=2cm](receiver){you};
+    \draw(source) edge[->,thick] (channel);
+    \draw(channel) edge[->,thick] (receiver);
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
 
 \end{document}
 
