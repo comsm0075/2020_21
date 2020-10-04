@@ -36,7 +36,7 @@
 \usetikzlibrary{arrows,decorations.markings,positioning}
 \usepackage{epstopdf}
 
-\title[1d Shannon's Entropy: lecture 2]{1d Shannon's Entropy: lecture 2}
+\title[Shannon's Entropy: lecture 2]{Information Theory lecture 2}
 \author{COMSM0075 Information Processing and Brain}
 \institute{\texttt{comsm0075.github.io}}
 \date{September 2020}
@@ -185,19 +185,19 @@ $$
   If the distribution is uniform
   \crish
   $$
-  p_X(x_i)=\frac{1}{N}
+  p_X(x_i)=\frac{1}{n}
 $$
   \cbla
   for all \sm x_i\fm{} where
     \crish
   $$
-  N=\#\mathcal{X}
+  n=\#\mathcal{X}
 $$
   \cbla
-then, since \sm-\log_2(1/N)=log_2{N}\fm{}  
+then, since \sm-\log_2(1/n)=log_2{n}\fm{}  
  \crish
  $$
- H(X)=\log_2{N}
+ H(X)=\log_2{n}
  $$
  \cbla
 \end{frame}
@@ -206,22 +206,54 @@ then, since \sm-\log_2(1/N)=log_2{N}\fm{}
   In fact, not proved here but not difficult to prove,
   \crish
   $$
-  0\le H(X) \le N
+  0\le H(X) \le n
   $$
   \cbla
-  with \sm H(X)\fm{} \cblu only\cbla{} if one probability is one and the rest zero and \sm H(X)=N\fm{} \cblu{}only\cbla{} for the uniform distribution.
+  with \sm H(X)\fm{} \cblu only\cbla{} if one probability is one and the rest zero and \sm H(X)=n\fm{} \cblu{}only\cbla{} for the uniform distribution.
 \end{frame}
 
 \begin{frame}{bounds}
   \crish
   $$
-  0\le H(X) \le N
+  0\le H(X) \le n
   $$
   \cbla
   That what we want!
   \end{frame}
 
-\begin{frame}{$N=2$}
+
+\begin{frame}{$n=2$}
+Two outcomes, \sm a\fm{} and \sm b\fm{} with \sm p(a)=p\fm{} and
+\sm{}p(b)=1-p\fm{} then
+\crish
+$$
+H=-p\log_2{p}-(1-p)\log_2{(1-p)}
+$$
+\end{frame}
+
+
+\begin{frame}{$n=2$}
+Two outcomes, \sm \cblu{}a\fm{} and \sm b\fm{} with \sm \cblu{}p(a)=p\fm{} and
+\sm{}p(b)=1-p\fm{} then
+\crish
+$$
+H=-p\log_2{p}-(1-p)\log_2{(1-p)}
+$$
+\end{frame}
+
+
+\begin{frame}{$n=2$}
+Two outcomes, \sm a\fm{} and \sm \cblu{}b\fm{} with \sm p(a)=p\fm{} and
+\sm{}\cblu{}p(b)=1-p\fm{} then
+\crish
+$$
+H=-p\log_2{p}-(1-p)\log_2{(1-p)}
+$$
+\end{frame}
+
+
+
+\begin{frame}{$n=2$}
 Two outcomes, \sm a\fm{} and \sm b\fm{} with \sm p(a)=p\fm{} and
 \sm{}p(b)=1-p\fm{} then
 \crish
@@ -607,6 +639,16 @@ eighth of the time.
   $$
   L=0.5\times 1 +0.25\times 2 + 0.125\times 3 +
 0.125\times 3=1.75
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{this code is shorter}
+  \crish
+  $$
+  L=0.5\times 1 +0.25\times 2 + 0.125\times 3 +
+0.125\times 3=\cgre 1.75 < 2
 $$
 \cbla
 \end{frame}
