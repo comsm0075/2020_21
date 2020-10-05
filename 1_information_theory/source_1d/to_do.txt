@@ -1,0 +1,9 @@
+
+in 2020
+
+1) the <X> was written <x> - corrected on slides, not in recording
+2) the L=1.75 < 2 slide came before the slide showing how L is calculated - corrected on slides, not in recording
+
+3) need a few more slides explaining the idea that basically the
+source coding theorem says that there is a code word for x_i which is
+near log_2 p(x_i) in length - to do next year
