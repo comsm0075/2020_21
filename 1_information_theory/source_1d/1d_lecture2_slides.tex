@@ -88,6 +88,19 @@ H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}
 \begin{frame}{Shannon's entropy}
   For a finite discrete distribution with random variable \sm X\fm,
   possible outcomes \sm\{x_1,x_2,\ldots x_n\}\in\mathcal{X}\fm{} and a
+  probability mass function \sm p_X\fm{} giving probabilities $ p_X(x_i)$\cbla, the
+  entropy is
+\cblu
+  $$
+H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}
+  $$
+\cbla
+\end{frame}
+
+
+\begin{frame}{Shannon's entropy}
+  For a finite discrete distribution with random variable \sm X\fm,
+  possible outcomes \sm\{x_1,x_2,\ldots x_n\}\in\mathcal{X}\fm{} and a
   probability mass function \sm p_X\fm{} giving probabilities \sm p_X(x_i)\fm, the
   entropy is
 \crish
@@ -95,8 +108,8 @@ H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}
 H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}
   $$
 \cbla
-In this definition \sm p\log_2{p}=0\fm{} when \sm p=0\fm; this makes sense since
-\crish
+In this definition \sm \cblu p\log_2{p}=0\fm{} when \sm p=0\fm; this makes sense since
+\cblu
 $$
 \lim_{p\rightarrow 0}p\log_2{p}=0
 $$
@@ -113,24 +126,10 @@ $$
   entropy is
 \crish
   $$
-H(X)=-\langle \log_2{p_X(X)}\rangle
+H(X)=-\sum_{x_i\in \mathcal{X}}{p_X(x_i)\log_2p_X(x_i)}=-E_X[log_2{p_X(X)}]=-\langle \log_2{p_X(X)}\rangle
   $$
 \cbla
 \end{frame}
-
-
-\begin{frame}{Shannon's entropy}
-  For a finite discrete distribution with random variable \sm X\fm,
-  possible outcomes \sm\{x_1,x_2,\ldots x_n\}\in\mathcal{X}\fm{} and a
-  probability mass function \sm p_X\fm{} giving probabilities \sm p_X(x_i)\fm, the
-  entropy is
-\crish
-  $$
-H(X)=-\cblu\langle\crish \log_2{p_X(X)}\cblu\rangle\crish
-  $$
-\cbla
-\end{frame}
-
 
 \begin{frame}{Shannon's entropy}
   \begin{quote}
@@ -206,10 +205,10 @@ then, since \sm-\log_2(1/n)=log_2{n}\fm{}
   In fact, not proved here but not difficult to prove,
   \crish
   $$
-  0\le H(X) \le n
+  0\le H(X) \le \log_2{n}
   $$
   \cbla
-  with \sm H(X)\fm{} \cblu only\cbla{} if one probability is one and the rest zero and \sm H(X)=n\fm{} \cblu{}only\cbla{} for the uniform distribution.
+  with \sm H(X)\fm{} \cblu only\cbla{} if one probability is one and the rest zero and \sm H(X)=\log_2{n}\fm{} \cblu{}only\cbla{} for the uniform distribution.
 \end{frame}
 
 \begin{frame}{bounds}
