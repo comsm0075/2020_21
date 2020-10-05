@@ -65,5 +65,4 @@ Machine/statistical Learning:
 
 #### Formative coursework:
 
-* CW1: Problem sheet on probabilities
-* CW2: Coursework on learning (labs on week 7 (12/11) and week 10 (03/12))
+* to be announced
