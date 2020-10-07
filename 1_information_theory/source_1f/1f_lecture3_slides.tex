@@ -1,0 +1,442 @@
+
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+%\usetheme{Montpellier}
+%\usetheme{Boadilla}
+%\usecolortheme[RGB={204,51,255}]{structure}
+%\usecolortheme[named=purple]{structure}
+\usecolortheme[RGB={62,128,62}]{structure}
+%\definecolor{dark}{rgb}{0.3,0.15,0.3}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+%\definecolor{reddish}{rgb}{.5,0.15,0.15}
+\definecolor{dark}{rgb}{0.5,0.3,0.4}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+\definecolor{reddish}{rgb}{.7,0.25,0.25}
+\definecolor{greenish}{rgb}{.25,0.7,0.25}
+\definecolor{blueish}{rgb}{.25,0.25,0.7}
+\definecolor{purple}{rgb}{.5,0.0,0.5}
+\usepackage{graphicx}
+\usepackage{pstricks}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\crish}{\color{reddish}}
+\newcommand{\cbla}{\color{black}}
+\newcommand{\cred}{\color{red}}
+\newcommand{\cblu}{\color{blue}}
+\newcommand{\cgre}{\color{green}}
+
+\newcommand{\sm}{\color{reddish}$}
+\newcommand{\fm}{$\color{black}{}}
+
+\newcommand{\letter}[1]{\color{blue}\texttt{#1}\color{black}}
+\newcommand{\binary}[1]{\color{red}\texttt{#1}\color{black}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.markings,positioning}
+\usepackage{epstopdf}
+
+\title[Joint and conditional entropy: lecture 3]{Information Theory lecture 3}
+\author{COMSM0075 Information Processing and Brain}
+\institute{\texttt{comsm0075.github.io}}
+\date{September 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Joint and conditional entropy}
+
+  \begin{quote}
+    Typically we want to use information theory to study the relationship
+    between two random variables.
+  \end{quote}
+\end{frame}
+
+
+\begin{frame}{Joint entropy}
+Given two random variables
+\sm X\fm{} and \sm Y\fm{} the probability of getting the pair \sm (x_i,y_j)\fm{} is given by
+the \textbf{joint probability} \sm p_{(X,Y)}(x_i,y_j)\fm. The \textbf{joint
+  entropy} is just the entropy of the joint distribution:
+\crish
+$$
+H(X,Y)=-\sum_{i,j}p_{X,Y}(x_i,y_j)\log_2{p_{X,Y}(x_i,y_j)}
+$$
+\cbla
+\end{frame}
+
+\begin{frame}{Joint entropy}
+Given two random variables
+\sm X\fm{} and \sm Y\fm{} the probability of getting the pair \sm (x_i,y_j)\fm{} is given by
+the \textbf{joint probability} \sm\cblu{} p_{(X,Y)}(x_i,y_j)\fm. The \textbf{joint
+  entropy} is just the entropy of the joint distribution:
+\crish
+$$
+H(X,Y)=-\sum_{i.j}\cblu{}p_{X,Y}(x_i,y_j)\crish\log_2{\cblu{}p_{X,Y}(x_i,y_j)\crish{}}
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{An example}
+  \color{purple}
+  \begin{center}
+\begin{tabular}{c|cc}
+&$x_0$&$x_1$\\
+\hline
+$y_0$&$1/4$&$1/4$\\
+$y_1$&$1/2$&$0$
+\end{tabular}
+  \end{center}
+  \cbla
+\end{frame}
+
+\begin{frame}{The joint entropy}
+  \begin{center}
+    \color{purple}
+\begin{tabular}{c|cc}
+&$x_0$&$x_1$\\
+\hline
+$y_0$&$1/4$&$1/4$\\
+$y_1$&$1/2$&$0$
+\end{tabular}
+\cbla
+ \end{center}
+ \crish
+ $$
+ H(X,Y)=-\frac{1}{2}\log_2{\frac{1}{4}}-\frac{1}{2}\log_2{\frac{1}{2}}=\frac{3}{2}
+ $$
+ \cbla
+\end{frame}
+
+
+\begin{frame}{Conditional probability}
+
+  \sm{}p_{X|Y}(x_i|y_j)\fm{} is the \textbf{conditional probability} of
+  \sm{}x_i\fm{} given \sm{}y_j\fm{}; if we know \sm{}Y=y_j\fm{} it gives the
+  probability that the pair is \sm{}(x_i,y_j)\fm{}.
+
+\end{frame}
+
+
+\begin{frame}{Conditional probability}
+
+  \crish
+  $$
+  p_{(X,Y)}(x_i,y_j)=p_{X|Y}(x_i|y_j)p_Y(y_j)
+  $$
+  \cbla
+
+\end{frame}
+
+
+\begin{frame}{Conditional probability}
+
+  \crish
+  $$
+  \cblu{}p_{(X,Y)}(x,y)\crish{}=p_{X|Y}(x|y)p_Y(y)
+  $$
+  \cbla
+
+\end{frame}
+
+
+\begin{frame}{Conditional probability}
+
+  \crish
+  $$
+  p_{(X,Y)}(x_i,y_j)=\cblu{}p_{X|Y}(x_i|y_j)\crish{}p_Y(y_j)
+  $$
+  \cbla
+
+\end{frame}
+
+
+\begin{frame}{Conditional probability}
+
+  \crish
+  $$
+  p_{(X,Y)}(x_i,y_j)=p_{X|Y}(x_i|y_j)\cblu{}p_Y(y_j)
+  $$
+  \cbla
+
+\end{frame}
+
+
+\begin{frame}{Conditional probability}
+
+  \crish
+  $$
+  p_{X|Y}(x_i|y_j)=\frac{p_{(X,Y)}(x_i,y_j)}{p_Y(y_j)}
+  $$
+  \cbla
+
+\end{frame}
+
+
+\begin{frame}{Marginal probabilities}
+
+  \crish
+  $$
+  p_X(x_i)=\sum_j p_{(X,Y)}(x_i,y_j)
+    $$
+    \cbla
+\end{frame}
+
+\begin{frame}{The conditioned entropy}
+  So lets substitute the conditional probability into the formula for the entropy
+  \crish
+  $$
+H(X|Y=y_j)=-\sum_{i} p_{X|Y}(x_i|y_j)\log_2{p_{X|Y}(x_i|y_j)}
+  $$
+  \cbla
+  This is the entropy of $X$ is we know $Y=y_j$; we'll call this the \textbf{conditioned entropy}.
+\end{frame}
+
+\begin{frame}{This can go either way!}
+  The previous example:
+  \begin{center}
+\color{purple}
+    \begin{tabular}{c|cc}
+&$x_0$&$x_1$\\
+\hline
+$y_0$&\cgre$1/4$&\cgre$1/4$\\
+$y_1$&\cblu$1/2$&\cblu$0$
+    \end{tabular}
+    \color{black}
+  \end{center}
+  has conditional distributions for \sm Y=y_0\fm:
+  \begin{center}
+    \color{green}
+    \begin{tabular}{c|cc}
+  &$x_0$&$x_1$\\
+\hline
+$Y=y_0$&$1/2$&$1/2$\\
+    \end{tabular}
+\cbla
+  \end{center}
+    and for \sm Y=y_1\fm:
+    \begin{center}
+      \color{blue}
+    \begin{tabular}{c|cc}
+  &$x_0$&$x_1$\\
+\hline
+$Y=y_1$&$1$&$0$\\
+    \end{tabular}
+    \cbla
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{This can go either way!}
+  \begin{center}
+    \color{green}
+    \begin{tabular}{c|cc}
+  &$x_0$&$x_1$\\
+\hline
+$Y=y_0$&$1/2$&$1/2$\\
+    \end{tabular}
+\cbla
+  \end{center}
+      so
+    \cgre
+    $$
+    H(X|Y=y_0)=1
+    $$
+    \vskip 1cm
+    \begin{center}
+      \color{blue}
+    \begin{tabular}{c|cc}
+  &$x_0$&$x_1$\\
+\hline
+$Y=y_1$&$1$&$0$\\
+    \end{tabular}
+    \cbla
+    \end{center}
+    \cbla
+    so
+    \cblu
+    $$
+    H(X|Y=y_1)=0
+    $$
+    \cbla
+\end{frame}
+
+\begin{frame}{The conditional entropy}
+  The \textbf{conditional entropy} is the average conditioned entropy:
+  \crish
+  $$
+H(X|Y)=\sum_j p_Y(y_j) H(X|Y=y_j)
+$$
+\cbla
+\end{frame}
+
+\begin{frame}{The conditional entropy}
+  The \textbf{conditional entropy} is the average conditioned entropy:
+  \crish
+  $$
+H(X|Y)=\sum_y p_Y(y) H(X|Y=y)
+$$ \cbla
+It tells us how much information there is in \sm X\fm{} \textsl{on average}
+if you know $Y$, averaged over the possible outcomes of `knowing \sm Y\fm{}'
+\end{frame}
+
+\begin{frame}{The conditional entropy}
+  The \textbf{conditional entropy} is the average conditioned entropy:
+  \crish
+  $$
+  H(X|Y)=\sum_j p_Y(y_j) H(X|Y=y_j)
+  $$\cbla
+  so substituting in for \sm{}H(X|Y=y_j)\fm{}
+  \crish
+  $$
+  H(X|Y)= -\sum_{i,j}p_Y(y_j) p_{X|Y}(x_i,y_j){\log_2p_{X|Y}(x_i,y_j)}
+  $$ \cbla
+  and, since \sm{}p_Y(y_j) p_{X|Y}(x_i,y_j)=p_{(X,Y)}(x_i,y_j)\fm{}, we have
+    \cblu
+  $$
+  H(X|Y)=-\sum_{i,j}p_{X,Y}(x_i,y_j)\log_2{p_{X|Y}(x_i|y_j)}
+  $$
+  \cbla
+  \end{frame}
+
+\begin{frame}{The conditional entropy}
+  \begin{quote}
+    \sm{}H(X|Y)\fm{}
+    is the average amount of information still in \sm{}X\fm{} when
+    we know \sm{}Y\fm{}.
+  \end{quote}
+  \end{frame}
+
+\begin{frame}{The conditional entropy has nice properties}
+  If \sm X\fm{} and \sm Y\fm{} are independent then
+  \crish
+  $$
+  p_{X,Y}(x_i,y_j)=p_X(x_i)p_Y(y_j)
+  $$
+  \cbla
+  for all \sm{}i\fm{} and \sm{}j\fm{} and
+\crish
+  $$p_{X|Y}(x_i|y_j)=p_X(x_i)$$
+\cbla
+so
+\crish
+$$
+\cblu{}H(X|Y)\crish{}=-\sum_{i,j}p_{X,Y}(x_i,y_j)\log_2{p_{X|Y}(x_i|y_j)}=\cblu{}H(X)
+$$
+\cbla
+\end{frame}
+
+\begin{frame}{The conditional entropy has nice properties}
+  Conversely, if \sm{}X\fm{} is determined by \sm{}Y\fm{}, for example
+  if the only \sm{}(x_j,y_i)\fm{} pairs that actually occur are
+  \sm{}(x_i,y_i)\fm{}. In this case \sm{}p_{X|Y}(x_j|y_i)\fm{} is zero for every \sm{}x_i\fm{} except \sm{}p_{X|Y}(x_i|y_i)=1\fm{}. In this case
+  \cblu
+  $$
+H(X|Y)=0
+$$
+\cbla
+\end{frame}
+
+\begin{frame}{Conditional entropy example}
+\begin{center}
+\color{purple}
+    \begin{tabular}{c|cc}
+&$x_0$&$x_1$\\
+\hline
+$y_0$&$1/4$&$1/4$\\
+$y_1$&$1/2$&$0$
+    \end{tabular}
+    \color{black}
+\end{center}
+with \sm{}H(X|Y=y_0)=1\fm{} and \sm{}H(X|Y=y_1)=0\fm{}.
+\end{frame}
+
+
+\begin{frame}{Conditional entropy example}
+\begin{center}
+\color{purple}
+    \begin{tabular}{c|cc}
+&$x_0$&$x_1$\\
+\hline
+$y_0$&$1/4$&$1/4$\\
+$y_1$&$1/2$&$0$
+    \end{tabular}
+    \color{black}
+\end{center}
+with \sm{}H(X|Y=y_0)=1\fm{} and \sm{}H(X|Y=y_1)=0\fm{}. The marginal distribution \sm{}p_Y(y)\fm{} is
+\begin{center}
+\color{purple}
+    \begin{tabular}{c|cc}
+  &$y_0$&$y_1$\\
+\hline
+$p_Y(y)$&$1/2$&$1/2$\\
+    \end{tabular}
+    \cbla
+    \end{center}
+and hence
+\crish
+$$
+H(X|Y)=\frac{1}{2}\times 1 + \frac{1}{2}\times 0 =\frac{1}{2}
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{Conditional entropy example}
+
+\crish
+$$
+H(X|Y)=\frac{1}{2}< H(X,Y) = \frac{3}{2}
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{Conditional entropy is less than joint entropy}
+\crish
+$$
+H(X|Y) \le H(X,Y) 
+$$
+\cbla
+which is as it should be!
+\end{frame}
+
+\begin{frame}{A chain rule}
+  This is what you get from the definition of entropy is you use
+  \crish
+  $$
+p_{X,Y}(x,y)=p_{X|Y}(x|y)p_Y{y}
+$$
+\cbla
+So take
+\crish
+$$
+H(X,Y)=-\sum_{x,y} p_{X,Y}(x,y)\log_2{p_{X,Y}(x,y)}
+$$
+\cbla
+and substitute for the \sm{}p_{X,Y}(x,y)\fm{} inside the log. A bit of mathematics gives you
+\crish
+$$
+H(X,Y)=H(X)+H(Y|X)
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{A chain rule}
+
+\crish
+$$
+H(X,Y)=H(X)+H(Y|X)
+$$ \cbla This again makes sense; the amount of information in
+\sm{}X\fm{} and \sm{}Y\fm{} is the amount of information in
+\sm{}X\fm{} plus the amount of information remaining in \sm{}Y\fm{} if
+we already know \sm{}X\fm{}.
+
+\end{frame}
+
+
+\end{document}
+
