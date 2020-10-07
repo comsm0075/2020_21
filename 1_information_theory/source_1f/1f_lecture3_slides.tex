@@ -135,7 +135,7 @@ $y_1$&$1/2$&$0$
 
   \crish
   $$
-  \cblu{}p_{(X,Y)}(x,y)\crish{}=p_{X|Y}(x|y)p_Y(y)
+  \cblu{}p_{(X,Y)}(x_i,y_j)\crish{}=p_{X|Y}(x_i|y_j)p_Y(y_j)
   $$
   \cbla
 
@@ -407,16 +407,16 @@ which is as it should be!
   This is what you get from the definition of entropy is you use
   \crish
   $$
-p_{X,Y}(x,y)=p_{X|Y}(x|y)p_Y{y}
+p_{X,Y}(x_i,y_j)=p_{X|Y}(x_i|y_j)p_Y{y_j}
 $$
 \cbla
 So take
 \crish
 $$
-H(X,Y)=-\sum_{x,y} p_{X,Y}(x,y)\log_2{p_{X,Y}(x,y)}
+H(X,Y)=-\sum_{i,j} p_{X,Y}(x_i,y_j)\log_2{p_{X,Y}(x_i,y_j)}
 $$
 \cbla
-and substitute for the \sm{}p_{X,Y}(x,y)\fm{} inside the log. A bit of mathematics gives you
+and substitute for the \sm{}p_{X,Y}(x_i,y_j)\fm{} inside the log. A bit of mathematics gives you
 \crish
 $$
 H(X,Y)=H(X)+H(Y|X)
