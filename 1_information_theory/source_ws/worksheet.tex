@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, epsfig}
+\usepackage[authoryear]{natbib}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{slashbox}
+\pagestyle{fancy}
+\lfoot{\texttt{comsm0075.github.io}}
+\lhead{IP\&B Worksheet - Conor}
+\rhead{\thepage}
+\cfoot{}
+\begin{document}
+
+\section*{Worksheet} 
+
+Many of these problems are taken from the excellent text book Cover
+and Thomas.
+
+\subsection*{Useful formulas}
+
+\begin{itemize}
+\item \textbf{Shannon's entropy}: $H(X)=-\sum_i p(x_i)\log_2{p(x_i)}$
+\item \textbf{joint entropy}: $H(X,Y)=-\sum_{i,j} p(x_i,y_j)\log_2{p(x_i,y_j)}$
+\item \textbf{conditional entropy}: $H(X|Y)=-\sum_{i,j} p(x_i,y_j)\log_2{p(x_i|y_j)}$
+\item \textbf{the chain rule for entropy}: $H(X,Y)=H(X|Y)+H(Y)$
+\item \textbf{mutual information}: $$I(X,Y)=\sum_{i,j} p(x_i,y_j)\log_2{\frac{p(x_i,y_j)}{p(x_i)p(y_j)}}$$
+\item $I(X,Y)=H(X)+H(Y)-H(X,Y)$
+\item $I(X,Y)=H(X)-H(X|Y)$
+\item $I(X,Y)=H(Y)-H(Y|X)$
+\end{itemize}
+
+\subsection*{Q1 - marginal and conditional distributions}
+
+Work out the marginal probability distributions and the $x=a$
+conditional probability distribution $P(Y|X=a)$ for
+\begin{center}
+\begin{tabular}{c|cc}
+\backslashbox{$Y$}{$X$}&$a$&$b$\\
+\hline
+1&$\frac{1}{16}$&$\frac{1}{2}$\\
+2&0&$\frac{1}{4}$\\
+3&$\frac{1}{16}$&$\frac{1}{8}$
+\end{tabular}
+\end{center}
+
+\subsection*{Q2 - working out entropy}
+
+For the above distribution work out $H(X)$, $H(Y)$, $H(X|Y)$,
+$H(Y|X)$, $H(X,Y)$, $H(Y)-H(Y|X)$ and $I(X;Y)$.
+
+\subsection*{Q3 - working out entropy}
+
+The World Series is a competition held each year in North America
+between two baseball teams. The series consists of between four and
+seven games, terminating if either team wins four games. Thus, the set
+of outcomes includes sequences like AAAA, ABAAA and ABABABA. Let $X$
+be the random variable representing the outcome and $Y$ the number of
+games played. Assuming the teams are equally matched and the games are
+independent, what are $H(X)$, $H(Y)$, $H(X|Y)$ and $H(Y|X)$?
+
+\subsection*{Q4 - the average entropy}
+
+Work out the average entropy for the distribution with two events
+$\{x_1,x_2\}$ and $p(x_1)=p$ and $p(x_2)=1-p$ under the assumption
+that each value of $p$ is equally likely.
+
+
+\subsection*{Q5 - bias in estimating information}
+
+Estimating entropy is hard; worse, the obvious estimator
+\begin{equation}
+  H(X)=-\sum_x \tilde{p}(x)\log_2\tilde{p}(x)
+\end{equation}
+where
+\begin{equation}
+  \tilde{p}(x)=\frac{\#(\mbox{trials giving }x)}{\mbox{total trials}}
+\end{equation}
+is biased. Write a short programme to graph this for eight equally
+likely outcomes. In this case the entropy should be three but you
+should simulate estimating the entropy from $n$ trials; in other
+words, pick from the eight items $n$ times, calculate $\tilde{p}$ and
+estimate $H(X)$; do this multiple times for each $n$ and plot the
+estimated entropy against $n$. Does Laplace smoothing help; Laplace
+smoothing is an alternative estimator for the probability
+\begin{equation}
+  \tilde{p}_\alpha(x)=\frac{\#(\mbox{trials giving }x)+\alpha}{\mbox{total trials}+d\alpha}
+\end{equation}
+where $d$ is the number of outcomes, eight in our case, and $\alpha$
+is a parameter usually taken as lying between zero and one. Try this a
+a few value of $\alpha$, for example $0.25$, $0.5$ and $1.0$.
+
+\bibliographystyle{apa}
+\bibliography{../../source/bibliography}{}
+
+\end{document}
+
