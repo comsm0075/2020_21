@@ -282,9 +282,12 @@ the probability that the pair is $(x,y)$. This means
 p_{(X,Y)}(x,y)=p_{X|Y}(x|y)p_Y(y)
 \end{equation}
 In other words, the probability of $(x,y)$ is the probability of $y$
-multiplied by the probability of $x$ given that we know $Y=y$. The
-marginal probabilities are related to the conditional probabilities as
-well:
+multiplied by the probability of $x$ given that we know $Y=y$. Here,
+$p_Y(y)$ is the marginal probability, the probability of getting $p_Y(Y=y)$; this means you aren't interested in the value of $X$ so you sum out those outcomes:
+\begin{equation}
+p_Y(y)=\sum_x p_{X,Y}(x,y)
+\end{equation}
+and
 \begin{equation}
 p_X(x)=\sum_y p_{X,Y}(x,y)
 \end{equation}
