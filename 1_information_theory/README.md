@@ -1,4 +1,2 @@
 
-1a - notes for information theory
-1b - slides for lecture 1
-
+see comsm0075.github.io/2020-21.html for links to online lectures
