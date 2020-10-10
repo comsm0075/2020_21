@@ -54,15 +54,16 @@ Machine/statistical Learning:
 * Lecture 16: Recurrent neural networks
 * Lecture 17: RNNs and Brain vs machine
 
-#### Guest lecturers (week 8):
+#### Coursework (week 8-10):
 
 ...TBC
 
-#### Revision week (week 12):
+#### Revision week (week 11):
 
 * Lecture 20: Conor's revision
-* Lecture 21: Rui/Cian revision
+* Lecture 21: Rui's revision
 
 #### Formative coursework:
 
-* to be announced
+Rui: 1. Biological plausability of backprop
+     2. Reinforcement learning: TD
