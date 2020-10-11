@@ -1,2 +1,6 @@
 
 1) all the slides need the title convention standardized; this lecture is probably the best way to do it.
+
+2) for some reason the flushright doesn't work for the mini-me covers the attribution text
+
+3) correct the spelling mistakes "conditional probability"
