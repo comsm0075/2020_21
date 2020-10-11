@@ -36,5 +36,22 @@ toGet99=[push!(x,3) for x in toGet19]
 
 println(calculateProbs(probs,toGet19))
 
+conditionedOn15=[[4,3]]
+
+println(calculateProbs(probs,conditionedOn15))
 
 
+conditionedOn9=[[10,3]]
+
+println(calculateProbs(probs,conditionedOn9))
+
+
+conditionedOn13=[[6,3]]
+
+println(calculateProbs(probs,conditionedOn13))
+
+
+
+conditionedOn60=[[3]]
+
+println(calculateProbs(probs,conditionedOn60))
