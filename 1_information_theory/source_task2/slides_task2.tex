@@ -1,0 +1,224 @@
+
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+%\usetheme{Montpellier}
+%\usetheme{Boadilla}
+%\usecolortheme[RGB={204,51,255}]{structure}
+%\usecolortheme[named=purple]{structure}
+\usecolortheme[RGB={62,128,62}]{structure}
+%\definecolor{reddish}{rgb}{0.3,0.15,0.3}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+%\definecolor{reddish}{rgb}{.5,0.15,0.15}
+\definecolor{reddish}{rgb}{0.5,0.3,0.4}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+\definecolor{reddish}{rgb}{.7,0.25,0.25}
+\definecolor{greenish}{rgb}{.25,0.7,0.25}
+\definecolor{blueish}{rgb}{.25,0.25,0.7}
+\definecolor{purple}{rgb}{.5,0.0,0.5}
+\usepackage{graphicx}
+\usepackage{pstricks}
+
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\crish}{\color{reddish}}
+\newcommand{\cbla}{\color{black}}
+\newcommand{\cred}{\color{red}}
+\newcommand{\cblu}{\color{blue}}
+\newcommand{\cgre}{\color{green}}
+
+\newcommand{\sm}{\color{reddish}$}
+\newcommand{\fm}{$\color{black}{}}
+
+\newcommand{\letter}[1]{\color{blue}\texttt{#1}\color{black}}
+\newcommand{\binary}[1]{\color{red}\texttt{#1}\color{black}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.markings,positioning}
+\usepackage{epstopdf}
+\usetikzlibrary{fit}
+
+\title[Information Theory task 2]{The Kullback Leibler divergence 6}
+\author{COMSM0075 Information Processing and Brain}
+\institute{\texttt{comsm0075.github.io}}
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{The KL divergence}
+  The \textbf{Kullback Leibler (KL) divergence} differs from the other
+  information theory quantities in that it deals with two probability
+  distributions $p(x)$ and $q(x)$ on the same set of outcomes
+  \crish$\mathcal{X}=\{x_1,x_2,\ldots,x_n\}$\cbla.
+\end{frame}
+
+\begin{frame}{The KL divergence}
+  The \textbf{Kullback Leibler (KL) divergence}, also called the \textbf{relative entropy} is
+  \crish
+  $$
+  d(p\|q)=\sum_i p(x_i)\log_2{\frac{p(x_i)}{q(x_i)}}
+    $$
+    \cbla
+\end{frame}
+
+
+\begin{frame}{The KL divergence - coding example}
+\begin{quote}
+  The \textbf{Kullback Leibler (KL) divergence} is the expected value
+  of the number of extra bits required to encode data with
+  distribution $p(x)$ compared to $q(x)$ is the code is optimized to
+  $q(x)$.
+  \end{quote}
+\end{frame}
+
+\begin{frame}{The KL divergence - coding example}
+
+\begin{center}
+\begin{tabular}{c|cccc}
+&\letter{A}&\letter{B}&\letter{C}&\letter{D}\\
+\hline
+$q$&1/2&1/4&1/8&1/8\\
+$p$&1/4&1/8&1/2&1/8\\
+\hline
+&\binary{0}&\binary{10}&\binary{110}&\binary{111}
+\end{tabular}
+\end{center}
+\crish
+$$
+L(q)=1.75
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{The KL divergence - coding example}
+\begin{center}
+\begin{tabular}{c|cccc}
+&\letter{A}&\letter{B}&\letter{C}&\letter{D}\\
+\hline
+$q$&1/2&1/4&1/8&1/8\\
+$p$&1/4&1/8&1/2&1/8\\
+\hline
+&\binary{0}&\binary{10}&\binary{110}&\binary{111}
+\end{tabular}
+\end{center}
+\crish
+$$
+L(p)=\frac{1}{4}+\frac{1}{8}\times 2 +\frac{1}{2}\times 3+\frac{1/8}\times 3=2.375
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{The KL divergence - coding example}
+\begin{center}
+\begin{tabular}{c|cccc}
+&\letter{A}&\letter{B}&\letter{C}&\letter{D}\\
+\hline
+$q$&1/2&1/4&1/8&1/8\\
+$p$&1/4&1/8&1/2&1/8\\
+\hline
+&\binary{0}&\binary{10}&\binary{110}&\binary{111}
+\end{tabular}
+\end{center}
+\crish
+$$
+L(p)-L(q)=2.375-1.75=0.625
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{The KL divergence - coding example}
+\begin{center}
+\begin{tabular}{c|cccc}
+&\letter{A}&\letter{B}&\letter{C}&\letter{D}\\
+\hline
+$q$&1/2&1/4&1/8&1/8\\
+$p$&1/4&1/8&1/2&1/8\\
+\hline
+&\binary{0}&\binary{10}&\binary{110}&\binary{111}
+\end{tabular}
+\end{center}
+\crish
+$$
+D(p||q)=\frac{1}{4}\log_2{\frac{1}{2}}+\frac{1}{8}\log_2{\frac{1}{2}}+\frac{1}{2}\log_2{4}+\frac{1}{8}\log_2{1}
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{The KL divergence - coding example}
+\begin{center}
+\begin{tabular}{c|cccc}
+&\letter{A}&\letter{B}&\letter{C}&\letter{D}\\
+\hline
+$q$&1/2&1/4&1/8&1/8\\
+$p$&1/4&1/8&1/2&1/8\\
+\hline
+&\binary{0}&\binary{10}&\binary{110}&\binary{111}
+\end{tabular}
+\end{center}
+\crish
+$$
+d(p\|q)=\frac{3}{8}-1=0.675
+$$
+\cbla
+\end{frame}
+
+
+\begin{frame}{The information inequality}
+  The \textbf{information inequality}, also called the \textbf{Gibbs inequality} says
+  \crish
+  $$d(p\|q)>0$$
+  \cbla
+  with equality if and only if \crish$p(x)=q(x)$\cbla{} for all \crish$x$\cbla{}.
+\end{frame}
+
+
+\begin{frame}{The information inequality}
+  The \textbf{information inequality}, also called the \textbf{Gibbs inequality} says
+  \crish
+  $$d(p\|q)>0$$
+  \cbla
+  with equality if and only if \crish$p(x)=q(x)$\cbla{} for all \crish$x$\cbla{}. Follows from Jensen's inequality.
+\end{frame}
+
+\begin{frame}{Two tasks}
+  \begin{enumerate}
+    \item Use the information processing inequality show
+      \crish$I(X,Y)\ge 0$\cbla; to do this relate
+      \crish$I(X,Y)$\cbla{} to \crish$d(p\|q)$\cbla{} by treating
+      \crish$p(x,y)$\cbla{} and \crish$p(x)p(y)$\cbla{} as two
+      distributions on the same set of outcomes.
+    \item Use the information processing inequality show
+      \crish$H(X)\le \log_2{n}$\cbla{} where
+      \crish$n=|\mathcal{X}|$\cbla. To do this use the uniform
+      distribution as $q(x)$.
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Another coding example}
+
+\begin{center}
+\begin{tabular}{c|cccc}
+&\letter{A}&\letter{B}&\letter{C}&\letter{D}\\
+\hline
+$q$&1/2&1/4&1/8&1/8\\
+$p$&1/4&1/4&1/4&1/4\\
+\hline
+$q$-code&\binary{0}&\binary{10}&\binary{110}&\binary{111}\\
+$p$-code&\binary{00}&\binary{01}&\binary{10}&\binary{11}
+\end{tabular}
+\end{center}
+\crish Check the relationship between the divergence and the
+difference in code lenghts, both using the code optimized to
+\crish$p$\cbla{} and \crish$q$\cbla{}.  \cbla
+\end{frame}
+
+\end{document}
+
