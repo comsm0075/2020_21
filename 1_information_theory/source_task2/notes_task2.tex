@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, epsfig}
+\usepackage[authoryear]{natbib}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{\texttt{comsm0075.github.io}}
+\lhead{IP\&B - 1\_information\_theory - Conor}
+\rhead{\thepage}
+\cfoot{}
+\begin{document}
+
+\section*{Week two task - TA notes} 
+
+\subsection*{$I(X,Y)\ge 0$}
+
+If we have a joint distribution $p(x,y)$ for two random variables $X$
+and $Y$, we have two distributions on the space of $(x,y)$ pairs, the
+original distribution $p(x,y)$ and the distribution given by
+marginalizing the distribution: $p(x)q(y)$.
+
+So for convenience
+of notation, that is not calling too many things `$p$', consider
+$d(r\|s)$ where $r(x,y)=p(x,y)$ and $s(x,y)=p(x)p(y)$. Now
+\begin{equation}
+ d(r\|s) = \sum_{i,j} r(x_i,y_j)\log_2{\frac{r(x_i,y_j)}{s(x_i,y_j)}}=\sum_{i,j} p(x_i,y_j)\log_2{\frac{p(x_i,y_j)}{p(x_i)p(y_j)}}
+ \end{equation}
+and hence $I(X,Y)=d(r\|s)\ge 0$ with equality if and only if
+$r(x,y)=s(x,y)$, that is, if the distributions are independent.
+
+\subsection*{$H(X)\le \log_2{n}$}
+
+So if $q(x)=u(x)$ the uniform distribution with $u(x_i)=1/n$ for all $i$ we have
+\begin{equation}
+  d(p|u)=\sum_i p(x_i)\log_2{p(x_i)}-\sum_i p(x_i)\log_2 \frac{1}{n}
+\end{equation}
+and the first term is $-H(X)$ and the second term is $-\log_2{n}$ because the $\sum_i p(x_i)=1$.
+
+\subsection*{The coding question}
+
+\begin{center}
+\begin{tabular}{c|cccc}
+&{A}&{B}&{C}&{D}\\
+\hline
+$q$&1/2&1/4&1/8&1/8\\
+$p$&1/4&1/4&1/4&1/4\\
+\hline
+$q$-code&{0}&{10}&{110}&{111}\\
+$p$-code&{00}&{01}&{10}&{11}
+\end{tabular}
+\end{center}
+ Check the relationship between the divergence and the
+difference in code lenghts, both using the code optimized to
+$p${} and $q${}.  
+
+So if $p(x)$ is the distribution, but we use the $q$-code, then
+\begin{equation}
+  L=\frac{1}{4}\left(1+2+3+3\right)=\frac{9}{4}
+\end{equation}
+whereas the code for $p(x)$ gives $L=2$, so the penalty for using the wrong code is $1/4$ when
+\begin{equation}
+  d(p\|q)=\frac{1}{4}\left(\log_2{\frac{1}{2}}+\log_2{1}+2\log_2{2}\right)=\frac{1}{4}(-1+0+2)=\frac{1}{4}
+\end{equation}
+Conversely is $q(x)$ is the distribution, using the $p$-code gives $L=2$ whereas the efficient code gives $L=7/4$ as before, giving, again, a gap of $1/4$.
+\begin{equation}
+  d(q\|p)=\frac{1}{2}\log_2{2}+\frac{1}{4}\log_2{1}+\frac{1}{4}\log_2{\frac{1}{2}}=\frac{1}{4}
+\end{equation}
+The symmetry seen in this problem is not a general property.
+
+\end{document}
+
