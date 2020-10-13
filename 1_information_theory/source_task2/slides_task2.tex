@@ -97,9 +97,10 @@ $p$&1/4&1/8&1/2&1/8\\
 \end{center}
 \crish
 $$
-L(q)=1.75
+L(p)=1.75
 $$
 \cbla
+where here we mean coding \crish$p$\cbla{} with the code optimal for $p$.  
 \end{frame}
 
 
@@ -116,9 +117,10 @@ $p$&1/4&1/8&1/2&1/8\\
 \end{center}
 \crish
 $$
-L(p)=\frac{1}{4}+\frac{1}{8}\times 2 +\frac{1}{2}\times 3+\frac{1/8}\times 3=2.375
+L(q)=\frac{1}{4}+\frac{1}{8}\times 2 +\frac{1}{2}\times 3+\frac{1}{8}\times 3=2.375
 $$
 \cbla
+where here we are coding $p$ with the code optimal for $q$.
 \end{frame}
 
 
@@ -135,7 +137,7 @@ $p$&1/4&1/8&1/2&1/8\\
 \end{center}
 \crish
 $$
-L(p)-L(q)=2.375-1.75=0.625
+L(q)-L(p)=2.375-1.75=0.625
 $$
 \cbla
 \end{frame}
@@ -182,7 +184,7 @@ $$
 \begin{frame}{The information inequality}
   The \textbf{information inequality}, also called the \textbf{Gibbs inequality} says
   \crish
-  $$d(p\|q)>0$$
+  $$d(p\|q)\ge 0$$
   \cbla
   with equality if and only if \crish$p(x)=q(x)$\cbla{} for all \crish$x$\cbla{}.
 \end{frame}
@@ -191,19 +193,19 @@ $$
 \begin{frame}{The information inequality}
   The \textbf{information inequality}, also called the \textbf{Gibbs inequality} says
   \crish
-  $$d(p\|q)>0$$
+  $$d(p\|q)\ge 0$$
   \cbla
   with equality if and only if \crish$p(x)=q(x)$\cbla{} for all \crish$x$\cbla{}. Follows from Jensen's inequality.
 \end{frame}
 
 \begin{frame}{Two tasks}
   \begin{enumerate}
-    \item Use the information processing inequality show
+    \item Use the information processing inequality show that
       \crish$I(X,Y)\ge 0$\cbla; to do this relate
       \crish$I(X,Y)$\cbla{} to \crish$d(p\|q)$\cbla{} by treating
       \crish$p(x,y)$\cbla{} and \crish$p(x)p(y)$\cbla{} as two
       distributions on the same set of outcomes.
-    \item Use the information processing inequality show
+    \item Use the information processing inequality show that
       \crish$H(X)\le \log_2{n}$\cbla{} where
       \crish$n=|\mathcal{X}|$\cbla. To do this use the uniform
       distribution as $q(x)$.
