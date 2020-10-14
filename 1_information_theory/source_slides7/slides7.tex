@@ -40,7 +40,7 @@
 \usepackage{epstopdf}
 \usetikzlibrary{fit}
 
-\title[Information Theory lecture 7]{Differential entropy: information theory lecture 6}
+\title[Information Theory lecture 7]{Differential entropy examples: information theory lecture 7}
 \author{COMSM0075 Information Processing and Brain}
 \institute{\texttt{comsm0075.github.io}}
 \date{October 2020}
@@ -52,7 +52,7 @@
 
 \begin{frame}{Differential entropy}
 \textbf{Differential entropy} is the name given to Shannon's entropy
-for continuous probability distributions: distributions where the sample space is $\mathcal{X}\subset \textbf{R}^d$:
+for continuous probability distributions: distributions where the sample space is $\mathcal{X}\subseteq \textbf{R}^d$.
 
 
   \end{frame}
@@ -81,7 +81,7 @@ for continuous probability distributions.
   \includegraphics[width=8cm]{Gauss_area.png}
 \end{center}
 \cgish
-  $$P(x_0\le x<le x_1)=\int_{x_0}^{x_1}dx p(x)$$\cbla{} is the probability\cgish{} $x_0\le x< x_1$.
+  $$P(x_0\le x< x_1)=\int_{x_0}^{x_1}dx p(x)$$\cbla{} is the probability\cgish{} $x_0\le x< x_1$.
 \cbla
 \vfill
 \flushright{\tiny{Image from wikipedia.}}
@@ -130,7 +130,7 @@ $$
   $$
   \cbla{}so\crish{}
   $$
-  h(X)=-\int_{-\infty}^{\infty}dx\, p(x)\log_2{p(x)}=-\int_0^adx\, \log_2{\frac{1}{a}}
+  h(X)=-\int_{-\infty}^{\infty}dx\, p(x)\log_2{p(x)}=-\frac{1}{a}\int_0^adx\, \log_2{\frac{1}{a}}
   $$
   \cbla{}
   and so
@@ -164,10 +164,10 @@ $$
 Substitute and integrate by parts to get
 \crish
 $$
-  h(X)=\frac{1}{2}\log{2\pi e \sigma^2}
+  h(X)=\frac{1}{2}\log_2{2\pi e \sigma^2}
   $$
 \cbla
-where the \crish$e$\cbla is just the exponential \crish$\exp{(1)}$\cbla.
+where the \crish$e$\cbla{} is just the exponential \crish$\exp{(1)}$\cbla.
 \end{frame}
 
 \begin{frame}{More of the negative values}
