@@ -1,0 +1,235 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, epsfig}
+\usepackage[authoryear]{natbib}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{slashbox}
+\pagestyle{fancy}
+\lfoot{\texttt{comsm0075.github.io}}
+\lhead{IP\&B Worksheet 2 - Conor}
+\rhead{\thepage}
+\cfoot{}
+\begin{document}
+
+\section*{Worksheet 2: outline solutions} 
+
+\subsection*{Q1 - marginal and conditional distributions}
+
+Work out the marginal probability distributions and the $x=a$ conditional probability distribution $P(Y|X=a)$ for
+\begin{center}
+\begin{tabular}{c|cc}
+\backslashbox{$Y$}{$X$}&$a$&$b$\\
+\hline
+1&$\frac{1}{3}$&$\frac{1}{6}$\\
+2&0&$\frac{1}{4}$\\
+3&$\frac{1}{8}$&$\frac{1}{8}$
+\end{tabular}
+\end{center}
+
+\subsubsection*{Solution}
+
+
+Calculating the marginal distribution just requires adding along the rows or columns, if we take $X$ to be the random variable going across, so ${\cal X}=\{a,b\}$ and $Y$ the random variable going down, so ${\cal Y}=\{1,2,3\}$ then the two marginal distributions are, for $X$
+\begin{center}
+\begin{tabular}{c|cc}
+&$a$&$b$\\
+\hline
+&$\frac{11}{24}$&$\frac{13}{24}$
+\end{tabular}
+\end{center}
+and for $Y$
+\begin{center}
+\begin{tabular}{c|ccc}
+&$1$&$2$&$3$\\
+\hline
+&$\frac{1}{2}$&$\frac{1}{4}$&$\frac{1}{4}$
+\end{tabular}
+\end{center}
+The conditional distribution, conditioned on $x=a$ is calculated using
+$p(y|x)p(x)=p(x,y)$ so we divide the $p(x=a,y)$ column by
+$p(x=a)=11/24$, hence
+\begin{center}
+\begin{tabular}{c|ccc}
+&$1$&$2$&$3$\\
+\hline
+&$\frac{8}{11}$&$0$&$\frac{3}{11}$
+\end{tabular}
+\end{center}
+
+
+
+\subsection*{Q2 - working out entropy}
+
+A fair coin is flipped until the first head occurs. Let $X$ denote the
+number of flips required.
+\begin{enumerate}
+\item Find the entropy $H(X)$ in bits. The following expressions may be useful:\begin{eqnarray}
+\sum_{n=0}^{\infty} r^n&=&\frac{1}{1-r}\cr
+\sum_{n=0}^{\infty}nr^n&=&\frac{r}{(1-r)^2}
+\end{eqnarray}
+\item A random variable $X$ is drawn according to this
+  distribution. Find a sequence of yes-no questions of the form, \lq
+  Is $X$ contained in the set $S$?\rq{}. Compare $H(X)$ to the
+  expected number of questions required to determine $X$. For the most
+  efficient sequence, that is the sequence the shortest expected
+  number of questions, these two numbers will be the same. You will
+  find that the most efficient sequence is very straightforward!
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+So, here the set of possible outcomes is ${\cal X}=\{1,2,3,\ldots\}$ and we need to start by working out $p_X{n}$ the chance of throwing $n$ flips before getting a head. To get $X=n$ you need to throw $n-1$ tails, this has probability $1/2^{n-1}$ followed by a head, which has probability $1/2$, hence
+\begin{equation}
+p_X(n)=\frac{1}{2^n}
+\end{equation}
+It is easy to check that 
+\begin{equation}
+\sum_{n=1}^{\infty}p_X(n)=\sum_{n=1}^{\infty}\frac{1}{2^n}=\sum_{n=0}^{\infty}\frac{1}{2^n}-1=1
+\end{equation}
+
+Now, to calculate the entropy, just use the formula:
+\begin{eqnarray}
+H(X)&=&-\sum_{n\in {\cal X}}p_X(x)\log{p_X(x)}\cr
+    &=&-\sum_{n=1}^{\infty}\frac{1}{2^n}\log{2^{-n}}=\sum_{n=1}^\infty\frac{n}{2^n}\cr
+&=&2
+\end{eqnarray}
+It is easy to see that this is the same as the average number of questions asked in order starting with $n=1$ of the form \lq is the answer $n$?\rq{} it would take to find $X$ .
+
+\subsection*{Q3 - A puzzle which lends itself to information type reasoning}
+
+Suppose that you have $n$ coins, among which there may or may not be
+one counterfeit coin. If there is a counterfeit coin it will weigh
+either less or more than the other coins. The coins are weighed using
+a balance, any number of coins van be put on each side of the balance,
+though obviously you will want the same number on each side.
+\begin{enumerate}
+\item Find an upper bound on the number of coins $n$ so that $k$
+  weighings will find the counterfeit coin, if any, and correctly
+  declare it to be heavier or lighter.
+\item What is the coin-weighing strategy for $k=3$ weighings and 12
+  coins,
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+So given that one of $n$ coins is counterfeit; there are $2n$ possible
+configurations, numbering the coins one to $n$, each possibility is
+either of the form the $i$th coin is heavier, or the $i$th coin is
+lighter. Thus, assuming all possibilities are equally likely, the
+random variable $X$ giving the identity and type of the bent coin has
+entropy $H(X)=\log{2n+1}$, the plus one is for the possibility that
+there is no counterfeit coin. What about weighing, $Y$, well each
+weighing involves taking two groups of coins and balancing them and
+this has three possible outcomes: left heavier, right heavier or
+balanced. Obivously, depending on what we have already worked out
+about the coins from previous weighings, these possibilities have
+different outcomes, for example, at the start, given that one coin is
+counterfeit, weighing $n/2$ coins against $n/2$ coins can't give
+balanced and the entropy for this measurement will be one
+bit. However, we know that $H(Y)<\log{3}$; the most uncertain
+measurement is the one where all possibilities are equally likely.
+
+Now, imagine drawing up a weighing statedgy, you are going to do $k$
+weighings $Y_1$, $Y_2$ to $Y_k$. The outcome of a weighing is determined by the value of
+$x$, the idenity and type of the bent coin, so $H(Y_1,Y_2,\ldots, Y_k|X)=0$. We have
+\begin{eqnarray}
+  H(X)+H(Y_1,Y_2,\ldots, Y_k|X)&=&H(X,Y_2,\ldots, Y_k)\cr
+  &=&H(Y_1,Y_2,\ldots,Y_k)+H(X|Y_1,Y_2,\ldots,Y_k)
+\end{eqnarray}
+If we have a statedgy that locates and types the counterfeit, there should be no uncertainty in $X$ given the $Y_i$ so 
+$H(X|Y_1,Y_2,\ldots,Y_k)=0$. So, if we are able to find and type the counterfeit
+\begin{equation}
+H(X)=H(Y_1,Y_2,\ldots,Y_k)
+\end{equation}
+but, from the independence theorem and the bound above
+\begin{equation}
+H(X)=H(Y_1,Y_2,\ldots,Y_k)\le H(Y_i)\le k\log{3}
+\end{equation}
+and hence
+\begin{equation}
+n\le \frac{3^{k}-1}{2}
+\end{equation}
+Hence, if it is possible to identify and type the coin in $k$
+weighings, we know we have less than $(3^k-1)/2$ coins. This bound may not
+be sharp, for particular values of $k$ it may not be possible to
+choose a stategy so each $Y$ has $H(Y)=\log{3}$ or so that the entropy
+of the joint distribution is equal to the sum of the entropies of the
+marginal distribution. However, we do have a bound.
+
+For $k=3$ we have $n\le 13$, in fact, there doesn't seem to be a
+solution for $n=13$; there is one for $n=12$. Lets start by numbering
+the coins from one to 12. The first weighing is $g_1=\{1,2,3,4\}$
+versus $g_2=\{5,6,7,8\}$. If $g_1$ is heavier; then weigh
+$g_3=\{1,2,5\}$ versus $g_4=\{3,4,6\}$. Thus $g_3$ and $g_4$ each have
+two coins which must be heavier if they are counterfeit and the
+remaining two coins, 7 and 8, must be lighter. If $g_3$ is heavier
+than $g_4$ this can only be because either 1 or 2 is heavier, or 6 is
+lighter; weighing 1 or 2 settles this, if one is heavier than the
+other, it is the bent coin, if they balance, 5 is. If $g_3$ and $g_4$
+balance then the counterfeit is either 7 or 8 and weighing them gives
+the answer. Finally, if $g_1$ and $g_2$ balance the counterfeit coin
+must be one of $\{9,10,11,12\}$; start by weighting $g_5=\{9,10\}$
+against $g_6=\{11,1\}$: 1 is known not to be counterfiet. If $g_5$ and
+$g_6$ balance then the coin can only be 12 and weighing this against 1
+gives the answer, otherwise, say $g_5$ is heavier than, either one of
+9 and 10 is heavy, or 11 is light, weighing 9 against 10 sorts this
+out.
+
+
+
+
+\subsection*{Q4 - Working out entropy and information}
+
+Let $p(x,y)$ be given by $p(0,0)=p(0,1)=p(1,1)=1/3$ and
+$p(1,0)=0$. Find $H(X)$, $H(Y)$, $H(X|Y)$, $H(Y|X)$, $H(X,Y)$,
+$H(Y)-H(Y|X)$ and $I(X;Y)$.
+
+\subsubsection*{Solution}
+
+So this is just a lot of calculating. First lets work out the two marginal distributions: $p_X(0)=2/3$, $p_X(1)=1/3$, whereas $p_Y(0)=1/3$ and $p_Y(1)=2/3$, hence
+\begin{equation}
+  H(X)=H(Y)=\frac{1}{3}\log_2{3}+\frac{2}{3}\log_2{\frac{3}{2}}\approx 0.92
+\end{equation}
+Now for the conditional distributions $p(0|Y=0)=1$, $p(1|Y=0)=0$, but $p(0|Y=1)=p(1|Y=1)=0.5$ and hence
+\begin{eqnarray}
+  H(X|Y=0)&=&0\cr
+  H(X|Y=1)&=&1
+\end{eqnarray}
+and hence, given $p_Y(1)=2/3$ we have $H(X|Y)=2/3$. $H(Y|X)$ is the same. Now
+\begin{equation}
+  H(X,Y)=3\frac{1}{3}\log_2(3)\approx 1.58
+\end{equation}
+Finally we could use $I(X;Y)=H(X)+H(Y)-H(X,Y)\approx 0.25$ or $I(X,Y)=H(X|Y)-H(X)\approx 0.25$ 
+
+
+\subsection*{Q5 - A question about information in the brain}
+
+Answer just one of these two questions, each is worth equal marks but the
+second is much harder than the first, so you'd be better off doing the
+first unless you are particularly interested in this topic. Both papers are available in the paper repository in the github.
+
+\begin{enumerate}
+\item The original idea of estimating neural information by binning
+  spike trains was spread across several papers, but one of the main
+  references is \cite{StrongEtAl1998}. One aspect of this paper we
+  didn't discuss is the use of extrapolation to estimate the
+  information as the number of samples becomes large based on the
+  behaviour for smaller numbers of samples. Can you give a short, up
+  to five line, summary of what this involves.
+
+\item In \cite{NemenmanEtAl2004} there is a deep commentary on how
+  information in neural data is computed. This is a very difficult
+  paper and the mathematics towards the end is hard. The aim of this
+  question is to read the paper and offer a three or four line overall
+  summary of what the paper is trying to do.
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+No fixed answer, you need to read the paper!
+
+\bibliographystyle{apa}
+\bibliography{../../source/bibliography}{}
+
+\end{document}
+
