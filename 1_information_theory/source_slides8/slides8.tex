@@ -1,0 +1,362 @@
+
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+%\usetheme{Montpellier}
+%\usetheme{Boadilla}
+%\usecolortheme[RGB={204,51,255}]{structure}
+%\usecolortheme[named=purple]{structure}
+\usecolortheme[RGB={62,128,62}]{structure}
+%\definecolor{reddish}{rgb}{0.3,0.15,0.3}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+%\definecolor{reddish}{rgb}{.5,0.15,0.15}
+\definecolor{reddish}{rgb}{0.5,0.3,0.4}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+\definecolor{reddish}{rgb}{.7,0.25,0.25}
+\definecolor{greenish}{rgb}{.25,0.8,0.25}
+\definecolor{blueish}{rgb}{.25,0.25,0.7}
+\definecolor{purple}{rgb}{.5,0.0,0.5}
+\usepackage{graphicx}
+\usepackage{pstricks}
+
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\crish}{\color{reddish}}
+\newcommand{\cgish}{\color{greenish}}
+\newcommand{\cbla}{\color{black}}
+\newcommand{\cred}{\color{red}}
+\newcommand{\cblu}{\color{blue}}
+\newcommand{\cgrish}{\color{green}}
+
+\newcommand{\sm}{\color{reddish}$}
+\newcommand{\fm}{$\color{black}{}}
+
+\newcommand{\letter}[1]{\color{blue}\texttt{#1}\color{black}}
+\newcommand{\binary}[1]{\color{red}\texttt{#1}\color{black}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.markings,positioning}
+\usepackage{epstopdf}
+\usetikzlibrary{fit}
+\usepackage{pgfplots}
+
+\title[Information Theory lecture 8]{Differential entropy and Shannon's entropy: information theory lecture 8}
+\author{COMSM0075 Information Processing and Brain}
+\institute{\texttt{comsm0075.github.io}}
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}{Differential entropy}
+\crish
+$$
+  h(X)=-\int dx p(x)\log_2{p(x)}
+  $$ \cbla
+\end{frame}
+
+
+\pgfmathdeclarefunction{gauss}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+
+
+\pgfmathdeclarefunction{uniform}{1}{%
+  \pgfmathparse{#1}%
+}
+
+
+\begin{frame}{Continuous to discrete}
+\begin{tikzpicture}
+\begin{axis}[
+  no markers, domain=0:10, samples=100,
+  axis lines*=left, xlabel=$x$, ylabel=$y$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=5cm, width=12cm,
+%  xtick={4,6.5}, ytick=\empty,
+  xtick=\empty,
+  ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  grid = major
+  ]
+%  \addplot [fill=cyan!20, draw=none, domain=0:5.96] {gauss(6.5,1)} \closedcycle;
+  \addplot [very thick,cyan!50!black] {gauss(4,1)};
+%  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
+%\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
+\end{axis}
+
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Continuous to discrete}
+\begin{tikzpicture}
+\begin{axis}[
+  no markers, domain=0:10, samples=100,
+  axis lines*=left, xlabel=$x$, ylabel=$y$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=5cm, width=12cm,
+%  xtick={4,6.5}, ytick=\empty,
+  xtick=\empty,
+  ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  grid = major
+  ]
+  \foreach \x in {0,0.5,...,8}
+  {
+  \addplot [fill=cyan!0, draw=black, domain=\x:\x+1] {gauss(4,1)} \closedcycle;
+  }
+%  \addplot [fill=cyan!20, draw=black, domain=3:3.5] {gauss(4,1)} \closedcycle;
+  \addplot [very thick,cyan!50!black] {gauss(4,1)};
+%  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
+%\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
+\end{axis}
+  \draw (5.5,2) node{\color{cyan!50!black}$p_X(x)$\cbla};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Continuous to discrete}
+\begin{tikzpicture}
+\begin{axis}[
+  no markers, domain=0:10, samples=100,
+  axis lines*=left, xlabel=$x$, ylabel=$y$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=5cm, width=12cm,
+%  xtick={4,6.5}, ytick=\empty,
+  xtick=\empty,
+  ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  grid = major
+  ]
+  \foreach \x in {0,0.5,...,8}
+  {
+  \addplot [fill=cyan!0, draw=black, domain=\x:\x+1] {gauss(4,1)} \closedcycle;
+  }
+  \addplot [fill=cyan!20, draw=black, domain=3:3.5] {gauss(4,1)} \closedcycle;
+  \addplot [very thick,cyan!50!black] {gauss(4,1)};
+
+  %  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
+%\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
+\end{axis}
+  \draw (3.1,-0.3) node{$x_i$};
+  \draw (3.8,-0.31) node{$x_{i+1}$};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Continuous to discrete}
+\begin{tikzpicture}
+\begin{axis}[
+  no markers, domain=0:10, samples=100,
+  axis lines*=left, xlabel=$x$, ylabel=$y$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=5cm, width=12cm,
+%  xtick={4,6.5}, ytick=\empty,
+  xtick=\empty,
+  ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  grid = major
+  ]
+  \foreach \x in {0,0.5,...,8}
+  {
+  \addplot [fill=cyan!0, draw=black, domain=\x:\x+1] {gauss(4,1)} \closedcycle;
+  }
+  \addplot [fill=cyan!20, draw=black, domain=3:3.5] {gauss(4,1)} \closedcycle;
+  \addplot [very thick,cyan!50!black] {gauss(4,1)};
+
+  %  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
+%\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
+\end{axis}
+  \draw (3.1,-0.3) node{$x_i$};
+  \draw (3.8,-0.31) node{$x_{i+1}$};
+  \draw (1.7,2.6) node{\color{cyan}$q_i=\int_{x_{i-1}}^{x_i}dx\,p_x(x)$\cbla};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Continuous to discrete}
+  Let \crish$\delta=x_{i+1}-x_i$\cbla.
+  \vskip 1cm Consider the discrete random variable
+  \crish$X^\delta$\cbla{} whose outcomes are the
+  \crish$\{x_1,x_2,\ldots\}$\cbla{} and whose probabilities are given
+  by
+  \crish $$
+  p_{X^\delta}(x_i)=q_i
+  $$\cbla
+  \end{frame}
+
+
+\begin{frame}{Continuous to discrete}
+  \crish $$
+  p_{X^\delta}(x_i)=q_i
+  $$\cbla
+  so
+   \crish
+  $$H(X^\delta)=-\sum_i q_i \log_2{q_i}$$
+  \cbla
+  \end{frame}
+
+\begin{frame}{Continuous to discrete}
+  \crish $$
+  q_i = \int_{x_{i-1}}^{x_i}dx\,p_x(x)
+  $$\cbla
+  The plot obviously is to get rid of the integral here, morally:
+  \crish $$
+    q_i=\int_{x_{i}}^{x_{i+1}}dx,p_X(x)\approx p(\bar{x}_i)\delta 
+$$\cbla
+where $\bar{x}_i$ is any point in $[x_i,x_{i+1})$ and the
+  approximation gets better as \crish$\delta$\cbla gets smaller.
+  \end{frame}
+
+\begin{frame}{Continuous to discrete}
+ \crish $$
+    q_i=\int_{x_{i}}^{x_{i+1}}dx,p_X(x)\approx p(\bar{x}_i)\delta 
+    $$\cbla
+Rather than worry about how good the approximation is, we use
+    an elegant alternative approach based on the mean value theorem.
+  \end{frame}
+
+
+\begin{frame}{Continuous to discrete}
+\begin{tikzpicture}
+\begin{axis}[
+  no markers, domain=0:10, samples=100,
+  axis lines*=left, xlabel=$x$, ylabel=$y$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=5cm, width=12cm,
+%  xtick={4,6.5}, ytick=\empty,
+  xtick=\empty,
+  ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  grid = major
+  ]
+  \foreach \x in {0,0.5,...,8}
+  {
+  \addplot [fill=cyan!0, draw=black, domain=\x:\x+1] {gauss(4,1)} \closedcycle;
+  }
+  \addplot [fill=cyan!20, draw=black, domain=3:3.5] {uniform(0.2419)} \closedcycle;
+  
+  \addplot [very thick,cyan!50!black] {gauss(4,1)};
+
+  %  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
+%\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
+\end{axis}
+  \draw (3.1,-0.3) node{$x_i$};
+  \draw (3.8,-0.31) node{$x_{i+1}$};
+  \draw (1.7,2.6) node{\color{cyan}$q_i>p_x(x_i)\delta$\cbla};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Continuous to discrete}
+\begin{tikzpicture}
+\begin{axis}[
+  no markers, domain=0:10, samples=100,
+  axis lines*=left, xlabel=$x$, ylabel=$y$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=5cm, width=12cm,
+%  xtick={4,6.5}, ytick=\empty,
+  xtick=\empty,
+  ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  grid = major
+  ]
+  \foreach \x in {0,0.5,...,8}
+  {
+  \addplot [fill=cyan!0, draw=black, domain=\x:\x+1] {gauss(4,1)} \closedcycle;
+  }
+  \addplot [fill=cyan!20, draw=black, domain=3:3.5] {uniform(0.3521)} \closedcycle;
+  
+  \addplot [very thick,cyan!50!black] {gauss(4,1)};
+
+  %  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
+%\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
+\end{axis}
+  \draw (3.1,-0.3) node{$x_i$};
+  \draw (3.8,-0.31) node{$x_{i+1}$};
+  \draw (1.7,2.6) node{\color{cyan}$q_i<p_x(x_{i+1})\delta$\cbla};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Continuous to discrete}
+\begin{tikzpicture}
+\begin{axis}[
+  no markers, domain=0:10, samples=100,
+  axis lines*=left, xlabel=$x$, ylabel=$y$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=5cm, width=12cm,
+%  xtick={4,6.5}, ytick=\empty,
+  xtick=\empty,
+  ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  grid = major
+  ]
+  \foreach \x in {0,0.5,...,8}
+  {
+  \addplot [fill=cyan!0, draw=black, domain=\x:\x+1] {gauss(4,1)} \closedcycle;
+  }
+  \addplot [fill=cyan!20, draw=black, domain=3:3.5] {uniform(0.3)} \closedcycle;
+  
+  \addplot [very thick,cyan!50!black] {gauss(4,1)};
+
+  %  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
+%\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
+\end{axis}
+  \draw (3.4,-0.3) node{$\bar{x}_i$};
+  \draw (1.7,2.6) node{\color{cyan}$q_i=p_x(\bar{x}_i)\delta$\cbla};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Mean Value Theorem}
+  The Mean Value Theorem tells us that assuming \crish$p_X(x)$\cbla{} is continuous we know we can
+always pick a value of \crish$\bar{x}_i\in[x_i,x_{i+1}]$\cbla{} such that\crish
+$$
+  p(\bar{x}_i)\delta =q_i=\int_{x_i}^{x_{i+1}}p_x(x)dx
+  $$
+  \cbla
+exactly.
+\end{frame}
+
+\begin{frame}{Integrals are gone}
+  \crish
+  $$H(X^\delta)=-\sum_i q_i \log_2{q_i} = -\sum_i  p_X(\bar{x}_i)\delta\log_2{p_X(\bar{x}_i)\delta}$$
+    \cbla
+    or, expanding out the log and using
+    \crish
+    $$
+  \sum_ip_X(\bar{x}_i)\delta  = \int dx\, p_X(x)=1     
+$$\cbla
+    we get
+  \crish
+  $$H(X^\delta) = -\sum_i  p_X(\bar{x}_i)\delta\log_2{p_X(\bar{x}_i)}-\log_2{\delta}$$
+    \cbla
+\end{frame}
+
+\begin{frame}{Use the Riemann approximation}
+  \crish
+$$
+  \sum_i f(\bar{x}_i) \delta \rightarrow \int f(x)dx 
+$$\cbla
+as \crish $\delta \rightarrow 0$\cbla{}.
+\end{frame}
+
+\begin{frame}{Finally}
+\crish
+  $$H(X^\delta)+\log_2{\delta} = -\sum_i  p_X(\bar{x}_i)\delta\log_2{p_X(\bar{x}_i)}\rightarrow h(X)$$
+    \cbla
+    as \crish$\delta x\rightarrow 0$\cbla.
+\end{frame}
+
+\end{document}
+
