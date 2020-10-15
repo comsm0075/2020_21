@@ -54,7 +54,7 @@
 \begin{frame}{Differential entropy}
 \crish
 $$
-  h(X)=-\int dx p(x)\log_2{p(x)}
+  h(X)=-\int dx p_X(x)\log_2{p_X(x)}
   $$ \cbla
 \end{frame}
 
@@ -69,7 +69,7 @@ $$
 }
 
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{A continuous distribution}
 \begin{tikzpicture}
 \begin{axis}[
   no markers, domain=0:10, samples=100,
@@ -88,12 +88,12 @@ $$
 %  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
 %\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
 \end{axis}
-
+  \draw (6,2.2) node{\color{cyan!50!black}$p_X(x)$\cbla};
 \end{tikzpicture}
 \end{frame}
 
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{A continuous distribution}
 \begin{tikzpicture}
 \begin{axis}[
   no markers, domain=0:10, samples=100,
@@ -116,12 +116,12 @@ $$
 %  \addplot [very thick,cyan!50!black] {gauss(6.5,1)};
 %\draw [yshift=-0.6cm, latex-latex](axis cs:4,0) -- node [fill=white] {$1.96\sigma$} (axis cs:5.96,0);
 \end{axis}
-  \draw (5.5,2) node{\color{cyan!50!black}$p_X(x)$\cbla};
+
 \end{tikzpicture}
 \end{frame}
 
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{Discrete from continuous}
 \begin{tikzpicture}
 \begin{axis}[
   no markers, domain=0:10, samples=100,
@@ -151,7 +151,7 @@ $$
 \end{frame}
 
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{Discrete from continuous}
 \begin{tikzpicture}
 \begin{axis}[
   no markers, domain=0:10, samples=100,
@@ -177,11 +177,11 @@ $$
 \end{axis}
   \draw (3.1,-0.3) node{$x_i$};
   \draw (3.8,-0.31) node{$x_{i+1}$};
-  \draw (1.7,2.6) node{\color{cyan}$q_i=\int_{x_{i-1}}^{x_i}dx\,p_x(x)$\cbla};
+  \draw (1.7,2.6) node{\color{cyan}$q_i=\int_{x_i}^{x_{i+1}}dx\,p_x(x)$\cbla};
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{A discrete random variable}
   Let \crish$\delta=x_{i+1}-x_i$\cbla.
   \vskip 1cm Consider the discrete random variable
   \crish$X^\delta$\cbla{} whose outcomes are the
@@ -193,7 +193,7 @@ $$
   \end{frame}
 
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{Shannon's entropy}
   \crish $$
   p_{X^\delta}(x_i)=q_i
   $$\cbla
@@ -203,28 +203,28 @@ $$
   \cbla
   \end{frame}
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{Get rid of the integrals}
   \crish $$
-  q_i = \int_{x_{i-1}}^{x_i}dx\,p_x(x)
+  q_i = \int_{x_i}^{x_{i+1}}dx\,p_x(x)
   $$\cbla
   The plot obviously is to get rid of the integral here, morally:
   \crish $$
-    q_i=\int_{x_{i}}^{x_{i+1}}dx,p_X(x)\approx p(\bar{x}_i)\delta 
+    q_i=\int_{x_{i}}^{x_{i+1}}dx\,p_X(x)\approx p_X(\bar{x}_i)\delta 
 $$\cbla
 where $\bar{x}_i$ is any point in $[x_i,x_{i+1})$ and the
-  approximation gets better as \crish$\delta$\cbla gets smaller.
+  approximation gets better as \crish$\delta$\cbla{} gets smaller.
   \end{frame}
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{Mean Value Theorem}
  \crish $$
-    q_i=\int_{x_{i}}^{x_{i+1}}dx,p_X(x)\approx p(\bar{x}_i)\delta 
+    q_i=\int_{x_{i}}^{x_{i+1}}dx\,p_X(x)\approx p_X(\bar{x}_i)\delta 
     $$\cbla
 Rather than worry about how good the approximation is, we use
     an elegant alternative approach based on the mean value theorem.
   \end{frame}
 
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{Mean Value Theorem}
 \begin{tikzpicture}
 \begin{axis}[
   no markers, domain=0:10, samples=100,
@@ -256,7 +256,7 @@ Rather than worry about how good the approximation is, we use
 \end{frame}
 
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{Mean Value Theorem}
 \begin{tikzpicture}
 \begin{axis}[
   no markers, domain=0:10, samples=100,
@@ -288,7 +288,7 @@ Rather than worry about how good the approximation is, we use
 \end{frame}
 
 
-\begin{frame}{Continuous to discrete}
+\begin{frame}{Mean Value Theorem}
 \begin{tikzpicture}
 \begin{axis}[
   no markers, domain=0:10, samples=100,
@@ -319,7 +319,7 @@ Rather than worry about how good the approximation is, we use
 \end{frame}
 
 \begin{frame}{Mean Value Theorem}
-  The Mean Value Theorem tells us that assuming \crish$p_X(x)$\cbla{} is continuous we know we can
+  The \textbf{Mean Value Theorem} tells us that assuming \crish$p_X(x)$\cbla{} is continuous we know we can
 always pick a value of \crish$\bar{x}_i\in[x_i,x_{i+1}]$\cbla{} such that\crish
 $$
   p(\bar{x}_i)\delta =q_i=\int_{x_i}^{x_{i+1}}p_x(x)dx
@@ -355,7 +355,22 @@ as \crish $\delta \rightarrow 0$\cbla{}.
 \crish
   $$H(X^\delta)+\log_2{\delta} = -\sum_i  p_X(\bar{x}_i)\delta\log_2{p_X(\bar{x}_i)}\rightarrow h(X)$$
     \cbla
-    as \crish$\delta x\rightarrow 0$\cbla.
+    as \crish$\delta \rightarrow 0$\cbla.
+\end{frame}
+ 
+\begin{frame}{Shannon's entropy and differential entropy}
+\crish
+  $$H(X^\delta)+\log_2{\delta} \approx h(X)$$
+    \cbla
+    for small enough \crish$\delta $\cbla.
+\end{frame}
+
+
+\begin{frame}{Shannon's entropy and differential entropy}
+\crish
+  $$H(X^\delta)+\cblu\log_2{\delta}\crish{} \approx h(X)$$
+    \cbla
+    for small enough \crish$\delta $\cbla.
 \end{frame}
 
 \end{document}
