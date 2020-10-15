@@ -151,13 +151,21 @@ and hence
 \begin{equation}
   H(Y)=-\frac{1}{8}\log{\frac{1}{8}}-\frac{1}{4}\log{\frac{1}{4}}-\frac{5}{16}\log{\frac{5}{16}}-\frac{5}{16}\log{\frac{5}{16}}\approx 1.92
 \end{equation}
-whereas for $X$ you need to add all outcomes: 
+whereas for $X$ you are summing over all the outcomes, so for the length four outcomes you have two possibilites and this adds
+\begin{equation}
+  -\frac{2}\times \frac{1}{16}\log_2{\frac{1}{16}}=\frac{1}{8}\times 4
+\end{equation}
+to the total whereas the 8 length five outcomes add
+\begin{equation}
+  -\frac{8}\times \frac{1}{32}\log_2{\frac{1}{32}}=\frac{1}{4}\times 5
+\end{equation}
+and putting it all together we get
 \begin{equation}
   H(X)=\frac{1}{8}4+\frac{1}{4}5+\frac{5}{16}6+\frac{5}{16}7\approx 5.82
 \end{equation}
 Now $H(Y|X)=0$ since the outcome determines the series length, the
-other way around is more complicated. For each series length all
-outcomes are equally likely so the entropy equals the number of elements, hence
+other way around is more complicated. For a given length, that is a given value of $Y$, all the
+outcomes are equally likely so the conditioned entropy $H(X|Y=y)$ equals the number of elements, hence summing over the conditioned entropies we get
 \begin{equation}
   H(X|Y)=\frac{1}{8}\log{2}+\frac{1}{4}\log{8}+\frac{5}{16}\log{20}+\frac{5}{16}\log{40}\approx 3.89
 \end{equation}
