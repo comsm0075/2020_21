@@ -170,7 +170,7 @@ Now what happens if we do a change of variable to \crish$y(x)$\cbla. For simplic
   dx=\left|\frac{dx}{dy}\right|dy
 $$
   \cbla 
-so if $y_0=y(x_0)$ and $y_1=y(x_1)$ we have
+so if \crish$y_0=y(x_0)$\cbla{} and \crish$y_1=y(x_1)$\cbla{} we have
 \crish
 $$
   P(y\in[y_0,y_1))=\int_{y_0}^{y_1} p_X(x(y))\left|\frac{dx}{dy}\right|dy
@@ -180,13 +180,13 @@ $$
 \end{frame}
 
 
-\begin{frame}{Change of variable}
+\begin{frame}{Change of variable - Jacobian}
   Remember how to change variables in an integral:
 \cblu $$
   dx=\left|\frac{dx}{dy}\right|dy
 $$
   \cbla 
-so if $y_0=y(x_0)$ and $y_1=y(x_1)$ we have
+so if \crish$y_0=y(x_0)$\cbla{} and \crish$y_1=y(x_1)$\cbla{} we have
 \crish
 $$
   P(y\in[y_0,y_1))=\int_{y_0}^{y_1} p_X(x(y))\cblu\left|\frac{dx}{dy}\right|dy
@@ -201,8 +201,8 @@ $$
 \crish $$
   dx=\left|\frac{dx}{dy}\right|dy
 $$
-  \cbla 
-so if $y_0=y(x_0)$ and $y_1=y(x_1)$ we have
+  \cbla
+  so if \crish$y_0=y(x_0)$\cbla{} and \crish$y_1=y(x_1)$\cbla{} we have
 \crish
 $$
   P(y\in[y_0,y_1))=\int_{y_0}^{y_1} \cblu{} p_X(x(y))\crish{}\left|\frac{dx}{dy}\right|dy
@@ -317,7 +317,7 @@ Using \crish$y=\cblu{}a\crish{} x$\cbla{} in this formula
 or
   \crish
   $$
-  I(X,Y)=\int p(x,y)\log_2{\frac{p(x,y)}{p(x)p(y)}}
+  I(X,Y)=\int p_{X,Y}(x,y)\log_2{\frac{p_{X,Y}(x,y)}{p_X(x)p_Y(y)}}dxdy
   $$
   \cbla
 \cbla
@@ -350,6 +350,14 @@ as \crish$\delta_x$\cbla{} and \crish$\delta_y$\cbla{} approach zero.
   I(X,Y)\ge 0
   $$
   \cbla
+\end{frame}
+
+
+
+\begin{frame}{Channel capacity theory}
+  \begin{center}
+\includegraphics[width=7cm]{cont4.png}
+  \end{center}  
 \end{frame}
 
 
