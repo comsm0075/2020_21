@@ -152,14 +152,6 @@ Now what happens if we do a change of variable to \crish$y(x)$\cbla.
 \end{frame}
 
 
-\begin{frame}{Change of variable}
-  \crish
-  $$
-  P(x\in[x_0,x_1))=\int_{x_0}^{x_1}p_X(x)dx
-    $$
-    \cbla
-Now what happens if we do a change of variable to \crish$y(x)$\cbla. For simplicity, assume \crish$y(x)$\cbla is strictly monotonic.
-\end{frame}
 
 
 \begin{frame}{Change of variable}
@@ -168,17 +160,7 @@ Now what happens if we do a change of variable to \crish$y(x)$\cbla. For simplic
   P(x\in[x_0,x_1))=\int_{x_0}^{x_1}p_X(x)dx
     $$
     \cbla
-Now what happens if we do a change of variable to \crish$y(x)$\cbla. For simplicity, assume \crish$y(x)$\cbla is strictly monotonic so we can invert to get \crish$x(y)$\cbla.
-\end{frame}
-
-
-\begin{frame}{Change of variable}
-  \crish
-  $$
-  P(x\in[x_0,x_1))=\int_{x_0}^{x_1}p_X(x)dx
-    $$
-    \cbla
-Now what happens if we do a change of variable to \crish$y(x)$\cbla. For simplicity, assume \crish$y(x)$\cbla is strictly monotonic so we can invert to get \crish$x(y)$\cbla.
+Now what happens if we do a change of variable to \crish$y(x)$\cbla. For simplicity, assume \crish$y(x)$\cbla{} is strictly monotonic so we can invert to get \crish$x(y)$\cbla.
 \end{frame}
 
 
@@ -192,6 +174,22 @@ so if $y_0=y(x_0)$ and $y_1=y(x_1)$ we have
 \crish
 $$
   P(y\in[y_0,y_1))=\int_{y_0}^{y_1} p_X(x(y))\left|\frac{dx}{dy}\right|dy
+    $$
+\cbla
+  
+\end{frame}
+
+
+\begin{frame}{Change of variable}
+  Remember how to change variables in an integral:
+\cblu $$
+  dx=\left|\frac{dx}{dy}\right|dy
+$$
+  \cbla 
+so if $y_0=y(x_0)$ and $y_1=y(x_1)$ we have
+\crish
+$$
+  P(y\in[y_0,y_1))=\int_{y_0}^{y_1} p_X(x(y))\cblu\left|\frac{dx}{dy}\right|dy
     $$
 \cbla
   
@@ -326,21 +324,6 @@ or
 \end{frame}
 
 
-\begin{frame}{The mutual information}
-\crish
-  $$
-  I(X,Y)=h(X)+h(Y)-h(X,Y)
-  $$
-  \cbla
-or
-  \crish
-  $$
-  I(X,Y)=\int p(x,y)\log_2{\frac{p(x,y)}{p(x)p(y)}}
-  $$
-  \cbla
-\cbla
-\end{frame}
-
 
 \begin{frame}{The mutual information has nice properties}
 \crish
@@ -357,7 +340,7 @@ is invariant under a change of variable; roughly speaking the Jacobian factors c
   I(X^{\delta_x},Y^{\delta_y})\rightarrow I(X,Y)
   $$
   \cbla
-as \crish$\delta_x$\cbla{} and \crish$\delta_y$\cbla approach zero.
+as \crish$\delta_x$\cbla{} and \crish$\delta_y$\cbla{} approach zero.
 \end{frame}
 
 
