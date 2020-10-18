@@ -1,4 +1,6 @@
 
 1) fix the typos in the I(X,Y) formula - done on slides not on video
 
-2) this should have a few more slides at the end going through some of the calculations - eg relating the two formulae for I(X,Y)
+2) this should have a few more slides at the end going through some of
+the calculations - eg relating the two formulae for I(X,Y) and going
+from the density property to the transformation of h(X)
