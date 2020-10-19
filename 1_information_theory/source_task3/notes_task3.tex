@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts, epsfig}
+\usepackage[authoryear]{natbib}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{\texttt{comsm0075.github.io}}
+\lhead{IP\&B - 1\_information\_theory - Conor}
+\rhead{\thepage}
+\cfoot{}
+\begin{document}
+
+\section*{Week three task - the Kelly Criterion} 
+
+\subsection*{The question}
+ The \textbf{Kelly criterion} is an investment strategy which can be
+ derived in its simplest form using the methods we have discussed. In
+ a simple example you have the opportunity to bet on event, that two
+ dice roll a seven for example. If your bet is a success you get
+ $r${} times your stake, if it fails you get nothing. The
+ probability of success is $p$. What fraction of your float
+ should you bet each time?
+
+ \newpage
+ 
+\subsection*{The answer}
+So there are two values for the reward, if the bet is successful the reward is
+\begin{equation}
+  S_+=(1-f)+fr
+\end{equation}
+times the stake, if it fails $S$ is given by
+\begin{equation}
+  S_-=(1-f)
+\end{equation}
+where $f$ is the fraction of the float that is bet. Hence, the doubling rate is
+\begin{equation}
+  R=p\log_2{[(1-f)+fr]}+(1-p)\log_2(1-f)
+\end{equation}
+To minimize this we differentiate
+\begin{equation}
+  \frac{dR}{df}=\frac{p(r-1)}{1+(r-1)f}-\frac{1-p}{1-f}
+\end{equation}
+and setting this equal to zero, and for convenient $\rho=r-1$:
+\begin{equation}
+  (1-p)(1+\rho f)=(1-f)p\rho
+\end{equation}
+or
+\begin{equation}
+  f=p-\frac{1-p}{\rho}
+\end{equation}
+This is the Kelly criterion.
+
+For $r=1/p$ the bet is fair and so over time you won't
+profit. Substituting $r=1/p$ in the Kelly criterion tells you you
+should bet nothing: $f=0$. Only if $r>1/p$ is $f>0$ and in that case
+you should bet.
+\end{document}
+
