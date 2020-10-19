@@ -1,0 +1,2 @@
+
+make the Barbara Shermund print a little smaller, it looks a bit squashed as is.
