@@ -116,12 +116,19 @@ version you always bet all your float.
 Recall \crish$b_a$\cbla{} be
 the fraction of your float you bet on the \crish$a$\cbla{}th horse. If
 \crish$A$\cbla{} was your float and the horse \crish$w$\cbla{} wins you will have
-\crish$$S(w)=Ab_wr_w$$\cbla{} after the race.
+\crish$$S(w)A=b_wr_wA$$\cbla{} after the race.
 \end{frame}
+
+
+\begin{frame}{Earnings - one race}
+So ratio of your float afterwards to your float before is
+\crish$$S(w)=b_wr_w$$\cbla{} after the race if \crish$w$\cbla{} wins. We can think of this as a random variable \crish$S$\cbla{} which is a function of the random variable \crish$W$\cbla, the winner: \crish$S(W)$\cbla{}.
+\end{frame}
+
 
 \begin{frame}{Earnings - many races}
 If there are \crish$N$\cbla{} races then at the end of the day you will have \crish$$
-S=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
+S_N=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
   $$\cbla{}where \crish$w(i)$\cbla{} is the winner of the
   \crish$i$\cbla{}th race and we are setting the initial float to one.
 \end{frame}
@@ -139,11 +146,11 @@ S=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
 \begin{frame}{Why the `doubling rate'?}
   Assume the results \crish$\{W_1,W_2,\ldots,W_N\}$\cbla{} are independent and have the same distribution, then if we bet with strategy \crish$\mathbf{b}$\cbla{} we have
   \crish
-  $$ \frac{1}{n}\log_2{S}=\frac{1}{n}\sum_i \log_2{b_{w(i)}r_{w(i)}}\rightarrow \langle \log_2{b_{w(i)}r_{w(i)}}\rangle_W= R(\mathbf{p},\mathbf{b})$$
+  $$ \frac{1}{N}\log_2{S_N}=\frac{1}{N}\sum_i \log_2{b_{w(i)}r_{w(i)}}\rightarrow \langle \log_2{b_{w(i)}r_{w(i)}}\rangle_W= R(\mathbf{p},\mathbf{b})$$
   \cbla
   so\cblu
   $$
-  S\approx 2^{nR(\mathbf{p},\mathbf{b})}
+  S_N\approx 2^{NR(\mathbf{p},\mathbf{b})}
   $$\cbla
 \end{frame}
 
