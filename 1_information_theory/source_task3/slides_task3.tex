@@ -157,7 +157,7 @@ S_N=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
 \begin{frame}{Best strategy}
   We want to maximize \crish$R(\mathbf{p},\mathbf{b})$\cbla{} over all choices of \crish$\mathbf{b_i}$\cbla{} subject to the constraint that \crish$b_a\ge0$\cbla{} and \crish$\sum_ab_a=1$\cbla{}. For a constrained optimization we use a Lagrange multiplier:
   \crish $$
-  J=\sum \sum_a{p_a\log_2{b_ar_a}} +\lambda \sum_ab_a
+  J=\sum_a{p_a\log_2{b_ar_a}} +\lambda \left(\sum_ab_a-1\right)
   $$\cbla
   Now
   \crish $$
@@ -175,6 +175,7 @@ S_N=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
   \crish $$
   b_a=p_a
   $$\cbla
+
 \end{frame}
 
 \begin{frame}{Proportional betting is best}
@@ -198,11 +199,24 @@ S_N=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
     and splitting the second term again this give
     \crish
     $$
-      R(\mathbf{p},\mathbf{b})=\sum_ap_a\log_2{r_a}-H(\mathbf{p})-D(\textbf{p}\|\textbf{b})
+      R(\mathbf{p},\mathbf{b})=\sum_ap_a\log_2{r_a}-H(\mathbf{p})-D(\mathbf{p}\|\mathbf{b})
       $$\cbla
-and since the first two terms don't depend on \crish$r_a$\cbla{} this shows that proportional betting is the best strategy. 
+
 \end{frame}
 
+\begin{frame}{A bound on the reward}
+  \crish
+    $$
+      R(\mathbf{p},\mathbf{b})=\sum_ap_a\log_2{r_a}-H(\mathbf{p})-D(\textbf{p}\|\textbf{b})
+      $$\cbla
+      and since the first two terms don't depend on \crish$b_a$\cbla{}. This means
+  \crish
+    $$
+      R(\mathbf{p},\mathbf{b})\le\sum_ap_a\log_2{r_a}-H(\mathbf{p})
+      $$\cbla giving a bound on the doubling rate, with equality if
+      and only if \crish$D(\textbf{p}\|\textbf{b})=0$\cbla{} which
+      only happens for proportional betting.
+\end{frame}
 
 \begin{frame}{The cost of ignorance}
 \crish
