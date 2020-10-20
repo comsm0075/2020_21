@@ -209,7 +209,7 @@ S_N=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
     $$
       R(\mathbf{p},\mathbf{b})=\sum_ap_a\log_2{r_a}-H(\mathbf{p})-D(\textbf{p}\|\textbf{b})
       $$\cbla
-      and since the first two terms don't depend on \crish$b_a$\cbla{}. This means
+      and note that the first two terms don't depend on \crish$b_a$\cbla{}. This means
   \crish
     $$
       R(\mathbf{p},\mathbf{b})\le\sum_ap_a\log_2{r_a}-H(\mathbf{p})
@@ -233,10 +233,10 @@ S_N=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
   \sum_a\frac{1}{r_a}=1
   $$
   \cbla{}
-  then
+  and imagine \crish$q_a=1/r_a$\cbla{} as the probability the bookie gives to the \crish$a$\cbla{}th horse winning, then
 \crish
   $$
-      R(\mathbf{p},\mathbf{b})=\cgre{}D(\textbf{p}\|\textbf{r})\crish{}-\cblu{}D(\textbf{p}\|\textbf{b})
+      R(\mathbf{p},\mathbf{b})=\cgre{}D(\textbf{p}\|\textbf{q})\crish{}-\cblu{}D(\textbf{p}\|\textbf{b})
       $$
       \cbla
 and betting is a competition of knowledge between you and the bookie.      
