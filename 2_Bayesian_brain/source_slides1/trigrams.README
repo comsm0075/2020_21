@@ -1,0 +1,19 @@
+from
+
+http://practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/
+
+awk '{a+=$2}END{print a}' < bigrams.txt
+
+gives
+
+4324127906
+
+so
+
+EE 18497942 -> 0.0043 p(E,E) we want p(E|E) = p(E,E)/p(E) = 0.033
+
+EL 23092248 . . . p(L|E)= 0.041
+
+EQ 1461436 . . . p(Q|E) = 0.0026
+
+ER  77134382  . . .p(R|E) = 0.14

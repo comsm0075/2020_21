@@ -1,0 +1,10 @@
+from
+
+
+http://practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/
+
+grep "^E" < bigrams.txt | awk '{a+=$2}END{print a}'
+
+521767608
+
+grep "^E" < bigrams.txt | awk '{print $1" "$2/806918}'
