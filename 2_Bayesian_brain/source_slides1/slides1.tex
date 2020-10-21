@@ -42,7 +42,7 @@
 \usetikzlibrary{fit}
 \usepackage{pgfplots}
 
-\title[The Bayesian Brain lecture 1]{A Bayesian approach: the Bayesian Brain lecture 1}
+\title[The Bayesian Brain lecture 1]{The Bayesian approach: the Bayesian Brain lecture 1}
 \author{COMSM0075 Information Processing and Brain}
 \institute{\texttt{comsm0075.github.io}}
 \date{October 2020}
@@ -98,9 +98,9 @@
   \crish$$
   P(D=w|S=n)=\frac{35}{36}
   $$\cbla{}
-and since this is close to one, the silly frequentist assumes the sun
-has exploded.\vskip 1cm
-Let's  Let's assume the probability the sun has exploded is one
+\flushleft{and since this is close to one, the silly frequentist assumes the sun
+has exploded.}\vskip 1cm
+Let's assume the probability the sun has exploded is one
 in a million; it is actually much less than that, so
 \crish$$
 P(S=n)=10^{-6}
@@ -144,8 +144,8 @@ $$\cbla{}
 
 \begin{frame}{Frequentists versus Bayesians}
   \begin{center}
-\includegraphics[width=5.5cm]{fig_freq.png}
-\includegraphics[width=5cm]{fig_bayes.png}
+\includegraphics[width=4.125cm]{fig_freq.png}
+\includegraphics[width=3.75cm]{fig_bayes.png}
 \end{center}
   \vfill
 \flushright{\tiny{Picture from Rosalyn Moran}}  
@@ -160,7 +160,7 @@ $$\cbla{}
 
 \begin{frame}{Guess the missing letter - letter frequencies}
   \begin{center}
-    \includegraphics[width=9cm]{freq.png}
+    \includegraphics[width=11cm]{freq.png}
   \vskip 1cm
     \cred{}CALL ME ISHMAE\cblu{}*\cbla{}
   \end{center}
@@ -171,7 +171,7 @@ $$\cbla{}
 
 
 \begin{frame}{Guess the missing letter - 2-gram letter frequencies}
-
+    \begin{center}
     \cred{}CALL ME ISHMA\cblu{}E*\cbla{}
   \end{center}
   with for example \crish$p(R)=0.14$\cbla{}, \crish$p(L)=0.04$\cbla{} and \crish$p(Q)=0.003$\cbla{}. 
@@ -179,10 +179,14 @@ $$\cbla{}
 
 
 \begin{frame}{Guess the missing letter - 3-gram letter frequencies}
-
+  Look at two letter pairs, \textsl{ER} and \textsl{EL} and so on, and
+  work out conditional probabilities like \crish$$ p(\mbox{second
+    letter is L}|\mbox{first letter is E})
+  $$\cbla{}
+    \begin{center}
     \cred{}CALL ME ISHM\cblu{}AE*\cbla{}
   \end{center}
-  with for example \crish$p(R)=0.10$\cbla{}, \crish$p(L)=0.4$\cbla{} and \crish$p(P)=0.001$\cbla{}. 
+  with for example \crish$p(R)=0.1$\cbla{}, \crish$p(L)=0.4$\cbla{} and \crish$p(P)=0.001$\cbla{}. 
   \end{frame}
 
 
@@ -192,6 +196,39 @@ $$\cbla{}
   \end{tabular}
   \end{frame}
 
+\begin{frame}{The Bayesian brain}
+
+  \begin{quote}
+    The problem the brain faces is a Bayesian one, the brain
+gathers evidence about the world through the senses, these are
+unreliable and limited but the brain has to infer the state of the
+world from the information they provided.
+  \end{quote}
+\end{frame}
+
+\begin{frame}{Bayes's rule}
+In a Bayesian interpretation Bayes's rule 
+\crish$$
+P(W|E)=\frac{P(E|W)P(W)}{P(E)}
+$$\cbla{}
+\flushleft{allows us to update our view of the world \crish$W$\cbla{} based on evidence \crish$E$\cbla. The rule is described as an update rule:}
+\crish$$
+\mbox{posterior}=\frac{\mbox{likelihood}\times \mbox{prior}}{\mbox{evidence}}
+$$\cbla{}
+\end{frame}
+
+\begin{frame}{Bayes's rule}
+\crish$$
+\mbox{posterior}=\frac{\mbox{likelihood}\times \mbox{prior}}{\mbox{evidence}}
+$$\cbla{}
+\vskip 1cm
+The \textbf{prior}, is our belief about the world before our
+observation, the \textbf{likelihood} is the probability of the
+evidence given the state of the world \crish$P(E|W)$\cbla, the
+\textbf{evidence} is the probability of the evidence
+\crish$P(W)$\cbla{} and the \textbf{posterior}, \crish$P(W|E)$\cbla, is our new
+belief about the world given the evidence we have observed.
+\end{frame}
   
 
 \end{document}
