@@ -207,21 +207,21 @@ S_N=\prod_{i=1}^N S(w(i))=\prod_{i=1}^N b_{w(i)}r_{w(i)}
 \begin{frame}{A bound on the reward}
   \crish
     $$
-      R(\mathbf{p},\mathbf{b})=\sum_ap_a\log_2{r_a}-H(\mathbf{p})-D(\textbf{p}\|\textbf{b})
+      R(\mathbf{p},\mathbf{b})=\sum_ap_a\log_2{r_a}-H(\mathbf{p})-D(\mathbf{p}\|\mathbf{b})
       $$\cbla
       and note that the first two terms don't depend on \crish$b_a$\cbla{}. This means
   \crish
     $$
       R(\mathbf{p},\mathbf{b})\le\sum_ap_a\log_2{r_a}-H(\mathbf{p})
       $$\cbla giving a bound on the doubling rate, with equality if
-      and only if \crish$D(\textbf{p}\|\textbf{b})=0$\cbla{} which
+      and only if \crish$D(\mathbf{p}\|\mathbf{b})=0$\cbla{} which
       only happens for proportional betting.
 \end{frame}
 
 \begin{frame}{The cost of ignorance}
 \crish
   $$
-      R(\mathbf{p},\mathbf{b})=\sum_ap_a\log_2{r_a}-H(p)-\cblu{}D(\textbf{p}\|\textbf{b})
+      R(\mathbf{p},\mathbf{b})=\sum_ap_a\log_2{r_a}-H(\mathbf{p})-\cblu{}D(\mathbf{p}\|\mathbf{b})
       $$
 \cbla
 \end{frame}

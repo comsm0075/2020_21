@@ -1,0 +1,155 @@
+
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+%\usetheme{Montpellier}
+%\usetheme{Boadilla}
+%\usecolortheme[RGB={204,51,255}]{structure}
+%\usecolortheme[named=purple]{structure}
+%\usecolortheme[RGB={62,128,62}]{structure}
+\usecolortheme[RGB={62,62,128}]{structure}
+%\definecolor{reddish}{rgb}{0.3,0.15,0.3}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+%\definecolor{reddish}{rgb}{.5,0.15,0.15}
+\definecolor{reddish}{rgb}{0.5,0.3,0.4}
+%\definecolor{light}{rgb}{0.8,0.6,0.8}
+\definecolor{reddish}{rgb}{.7,0.25,0.25}
+\definecolor{greenish}{rgb}{.25,0.8,0.25}
+\definecolor{blueish}{rgb}{.25,0.25,0.7}
+\definecolor{purple}{rgb}{.5,0.0,0.5}
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{epsfig}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\crish}{\color{reddish}}
+\newcommand{\cgish}{\color{greenish}}
+\newcommand{\cbla}{\color{black}}
+\newcommand{\cred}{\color{red}}
+\newcommand{\cblu}{\color{blue}}
+\newcommand{\cgrish}{\color{green}}
+
+\newcommand{\sm}{\color{reddish}$}
+\newcommand{\fm}{$\color{black}{}}
+
+\newcommand{\letter}[1]{\color{blue}\texttt{#1}\color{black}}
+\newcommand{\binary}[1]{\color{red}\texttt{#1}\color{black}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.markings,positioning}
+\usepackage{epstopdf}
+\usetikzlibrary{fit}
+\usepackage{pgfplots}
+
+\title[The Bayesian Brain lecture 1]{A Bayesian approach: the Bayesian Brain lecture 1}
+\author{COMSM0075 Information Processing and Brain}
+\institute{\texttt{comsm0075.github.io}}
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{The compulsary xkcd cartoon}
+\begin{center}
+\includegraphics[width=7.5cm]{xkcd1.png}
+\end{center}
+\vfill
+\flushright{\tiny{xkcd.com/1132/}}
+\end{frame}
+
+
+\begin{frame}{The compulsary xkcd cartoon}
+\begin{center}
+\includegraphics[width=8.5cm]{xkcd2.png}
+\end{center}
+\vfill
+\flushright{\tiny{xkcd.com/1132/}}
+\end{frame}
+
+\begin{frame}{Recall Bayes's rule}
+  \crish$$
+  P(X|Y)=\frac{P(Y|X)P(X)}{P(Y)}
+  $$\cbla
+\end{frame}
+
+\begin{frame}{xkcd maths}
+  \crish$D$\cbla{} is the state of the detector with
+  \crish$D=\cred{}w$\cbla{} corresponding to a \cred{}warning\cbla{}.
+\begin{center}
+\includegraphics[width=1.5cm]{xkcd_detector.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{xkcd maths}
+  \crish$S$\cbla{} is the state of the \color{orange}sun\cbla{} with
+  \crish$S=\cred{}n$\cbla{}  corresponding to a \cred{}nova\cbla{} and \crish$S=\cblu{}f$\cbla{} to it staying fine. 
+\begin{center}
+\includegraphics[width=5cm]{nebula.jpg}
+\end{center}
+\vfill
+\flushright{\tiny{Picture of the Helix nebula from Wikipedia}}
+\end{frame}
+
+\begin{frame}{xkcd math}
+  The cartoon tells us that
+  \crish$$
+  P(D=w|S=n)=\frac{35}{36}
+  $$\cbla{}
+and since this is close to one, the silly frequentist assumes the sun
+has exploded.\vskip 1cm
+Let's  Let's assume the probability the sun has exploded is one
+in a million; it is actually much less than that, so
+\crish$$
+P(S=n)=10^{-6}
+$$\cbla{}
+We want to know
+\crish$$
+P(S=f|D=w)=\frac{P(D=w|S=f)P(S=f)}{P(W)}
+$$\cbla{}
+\end{frame}
+
+
+\begin{frame}{xkcd math}
+\crish$$
+P(S=f|D=w)=\frac{P(D=w|S=f)P(S=f)}{P(W)}
+$$\cbla{}
+Numerator is easy:
+\crish$$
+P(D=w|S=f)P(S=f)=\frac{1}{36}(1-10^{-6})
+$$\cbla{}
+The denominator requires marginalizing:
+\crish$$
+P(D=w)=P(D=w,S=n)+P(D=w,S=f)
+$$\cbla{}
+\vskip 1cm
+Doing what's required gives
+\crish$$
+P(S=f|D=w)\approx 0.999965
+$$\cbla{}
+\end{frame}
+
+\begin{frame}{The Bayesian brain}
+  \begin{quote}The point of this section is that the brain appears to perform Bayesian calculation over multiple pieces of evidence incorporating recent observations and established models of the world.
+  \end{quote}
+\end{frame}
+
+\begin{frame}{What does probability model?}
+  \begin{quote}
+    The laws of probability are mathematics - the mathematics don't determine what probabilities model.
+    \end{quote}
+\end{frame}
+
+\begin{frame}{Frequentists versus Bayesians}
+  \begin{center}
+\includegraphics[width=5.5cm]{fig_freq.png}
+\includegraphics[width=5cm]{fig_bayes.png}
+\end{center}
+  \vfill
+\flushright{\tiny{Picture from Rosalyn Moran}}  
+\end{frame}
+  
+\end{document}
+
