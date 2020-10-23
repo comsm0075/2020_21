@@ -42,7 +42,7 @@
 \usetikzlibrary{fit}
 \usepackage{pgfplots}
 
-\title[The Bayesian Brain lecture 2]{Bayesian fusion: the Bayesian Brain lecture 1}
+\title[The Bayesian Brain lecture 2]{Bayesian fusion: the Bayesian Brain lecture 2}
 \author{COMSM0075 Information Processing and Brain}
 \institute{\texttt{comsm0075.github.io}}
 \date{October 2020}
@@ -180,20 +180,20 @@ $$\cbla{}
 
 \begin{frame}{Bayesian fusion}
   Let's assume the noise modelled by \cblu$V$\cbla{} and \cred$H$\cbla{} are Gau\ss{}ian so
-\crish
+\cblu
   \begin{eqnarray*}
-    (V|X=x)\sim{}\mathcal{N}(x,\sigma_v^2)\cr
+    (V|X=x)&\sim{}&\mathcal{N}(x,\sigma_v^2)\cr
     p(v|x)&=&\frac{1}{\sqrt{2\pi\sigma_v^2}}e^{-\frac{(v-x)^2}{2\sigma_v^2}}
   \end{eqnarray*}
   \cbla{}
   and
-    \crish
+    \cred
   \begin{eqnarray*}
-    (H|X=x)\sim{}\mathcal{N}(x,\sigma_h^2)\cr
+    (H|X=x)&\sim{}&\mathcal{N}(x,\sigma_h^2)\cr
     p(h|x)&=&\frac{1}{\sqrt{2\pi\sigma_h^2}}e^{-\frac{(h-x)^2}{2\sigma_h^2}}
   \end{eqnarray*}
   \cbla{}
-  It is also assumed that the participant has an estimate of the size of the noise, that is, the participant knows \crish$\sigma_v^2$\cbla{} and \crish$\sigma_h^2$\cbla{}.
+  It is also assumed that the participant has an estimate of the size of the noise, that is, the participant knows \cblu$\sigma_v^2$\cbla{} and \cred$\sigma_h^2$\cbla{}.
 \end{frame}
   
 
@@ -244,13 +244,17 @@ Let
 $$\cbla{}
 then
 \crish$$
+1-\lambda=\frac{\sigma^2}{\sigma_v^2}
+$$\cbla{}
+so
+\crish$$
 \bar{x}=(1-\lambda)v+\lambda h
 $$\cbla{}
 \end{frame}
 
 
 \begin{frame}{Bayesian fusion}
-  \cred$v=4$\cbla{} and \cred$\sigma_v=1$\cbla{}
+  \cblu$v=4$\cbla{} and \cblu$\sigma_v=1$\cbla{}
   \vskip 1cm
 \begin{tikzpicture}
   \begin{axis}[
@@ -273,7 +277,7 @@ $$\cbla{}
 
 
 \begin{frame}{Bayesian fusion}
-  \cblu$h=2$\cbla{} and \cblu$\sigma_h=1$\cbla{}
+  \cred$h=2$\cbla{} and \cred$\sigma_h=1$\cbla{}
   \vskip 1cm
   \begin{tikzpicture}
   \begin{axis}[
@@ -322,7 +326,7 @@ $$\cbla{}
 
 
 \begin{frame}{Bayesian fusion}
-  \cred$v=4$\cbla{} and \cred$\sigma_v=1$\cbla{}
+  \cblu$v=4$\cbla{} and \cblu$\sigma_v=1$\cbla{}
   \vskip 1cm
 \begin{tikzpicture}
   \begin{axis}[
@@ -345,7 +349,7 @@ $$\cbla{}
 
 
 \begin{frame}{Bayesian fusion}
-  \cblu$h=2$\cbla{} and \cblu$\sigma_h=2$\cbla{}
+  \cred$h=2$\cbla{} and \cred$\sigma_h=2$\cbla{}
   \vskip 1cm
   \begin{tikzpicture}
   \begin{axis}[
