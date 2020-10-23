@@ -1,0 +1,4 @@
+
+typo of v instead of bar{x} - correct in slides, not in video
+
+should actually write down the formula for p(x|v,h)
