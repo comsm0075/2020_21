@@ -58,7 +58,7 @@
 
 \begin{frame}{Kalman filter}
   \begin{quote}
-The Kalman filter uses Bayesian fusion to estimate location based on noisy meaurement and on dead reckoning.
+The Kalman filter uses Bayesian fusion to estimate location based on noisy measurement and on dead reckoning.
   \end{quote}
 
 \end{frame}
@@ -192,7 +192,7 @@ $$\cbla{}
 \crish$$
 \mathbf{\bar{x}}_a=F\mathbf{\bar{x}}
 $$\cbla{}
-Let's write \crish$\mathbf{x}_d$\cbla{} for \crish$\mathbf{\bar{x}}_a$\cbla{}.
+Let's write \crish$\mathbf{x}_d$\cbla{} for \crish$\mathbf{\bar{x}}_a$\cbla{} and \crish$x_o$$\cbla{} for \crish$\mathbf{\bar{x}}$\cbla{}.
 \end{frame}
 
 \begin{frame}{Change in covariance}
@@ -234,27 +234,28 @@ In our two-dimensional case simple algebra gives
 \begin{frame}{Measurement}
   \crish$$
 \mathbf{x}_s=\mathbf{x}_a+\mathbf{r}
-$$\cbla{} where \crish$\mathbf{r}$\cbla{} is the noise in our sensor;
+$$\cbla{}
+\flushleft{where \crish$\mathbf{r}$\cbla{} is the noise in our sensor;
 it has covariance \crish$R$\cbla. More complex models of the sensor
 noise are often considers, but they are a straightforward extension of
-what we do here.
+what we do here.}
 \end{frame}
 
 \begin{frame}{Bayesian fusion}
-  We want to put these together. We want
-  \crish$$p(\mathbf{x}_a|\mathbf{x}_d\mathbf{x}_s)$$\cbla{}
+  We want to put these together.
+  \crish$$p(\mathbf{x}|\mathbf{x}_d,\mathbf{x}_s)$$\cbla{}
 From the Bayes rule:
 \crish$$
-p(\mathbf{x}_a|\mathbf{x}_d\mathbf{x}_s)\propto p(\mathbf{x}_d\mathbf{x}_s|\mathbf{x}_a)=p(\mathbf{x}_d|\mathbf{x}_a)p(\mathbf{x}_s|\mathbf{x}_a)
+p(\mathbf{x}|\mathbf{x}_d,\mathbf{x}_s)\propto p(\mathbf{x}_d,\mathbf{x}_s|\mathbf{x})=p(\mathbf{x}_d|\mathbf{x})p(\mathbf{x}|\mathbf{x})
 $$\cbla{}
 \end{frame}
 
 \begin{frame}{One-dimensional example}
   \crish$y$\cbla{}s where the \crish$\mathbf{x}$\cbla{}s where, little letters for variances, the equivalent of the covariances before.
 \crish$$
-p(y_a|y_dy_s)\propto p(y_d|y_a)p(y_s|y_a)
-$$\cbla{} where \crish$p(y_d|y_a)\sim\mathcal{N}(y_a,p_d)$\cbla{} and
-\crish$p(y_s|y_a)\sim\mathcal{N}(y_a,r)$\cbla{}.
+p(y|y_d,y_s)\propto p(y_d|y)p(y_s|y)
+$$\cbla{} where \crish$p(y_d|y)\sim\mathcal{N}(y,p_d)$\cbla{} and
+\crish$p(y_s|y)\sim\mathcal{N}(y,r)$\cbla{}.
 \vskip 1cm
 This is just Bayesian fusion
 \crish$$
@@ -317,13 +318,13 @@ and
 \crish$$
 K=P_dS^{-1}
 $$\cbla{}
-This factor, called the \textbf{Kalman gain} is clearly the analogue of \crish$k$\cbla{} above.
+\flushleft{This factor, called the \textbf{Kalman gain} is clearly the analogue of \crish$k$\cbla{} above.}
 \crish$$
 \mathbf{x}_n=\mathbf{x}_d+K(\mathbf{x}_s-\mathbf{x}_d)
 $$\cbla{}
 and 
 \crish$$
-P_n=(\textbf{1}-K)P_d
+P_n=(\mathbf{1}-K)P_d
 $$\cbla{}
 \end{frame}
 
