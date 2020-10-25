@@ -190,7 +190,7 @@ equivalent for Gau\ss{}ian distributions to updating the distribution.}
 \end{frame}
 
 \begin{frame}{Kalman filter}
- At a time \crish$t$\cbla{} we have an believe about the position and
+ At a time \crish$t$\cbla{} we have a belief about the position and
  speed: we believe they are \crish$\mathbf{\bar{x}}$\cbla{}, but our
  estimate is uncertain, \crish$\mathbf{\bar{x}}$\cbla{} is the mean of
  a two-dimensional Gau\ss{}ian distribution with covariance
@@ -337,12 +337,12 @@ Thus, the new estimate is the dead reckoning estimate along with a correction co
 \end{frame}
 
 \begin{frame}{Kalman gain}
-\crish$$
+\cblu$$
 \bar{y}_n=y_d+k(y_s-y_d)
 $$\cbla{}
 where
 \crish $$
-k=\frac{p_n}{r}=\frac{p_d}{p_d+r}
+\cblu{}k\crish=\frac{p_n}{r}\cblu=\frac{p_d}{p_d+r}
 $$ \cbla{}
 and
 \crish$$
@@ -350,7 +350,7 @@ and
 $$\cbla{}
 and after a bit of algebra
 \crish$$
-p_n=\frac{rp_d}{p_d+r}=\frac{p_d(r+p_d)}{p_d+r}-\frac{p_d^2}{p_d+r}=(1-k)p_d
+\cblu{}p_n\crish=\frac{rp_d}{p_d+r}=\frac{p_d(r+p_d)}{p_d+r}-\frac{p_d^2}{p_d+r}\cblu=(1-k)p_d
 $$\cbla{}
 \end{frame}
 
