@@ -39,20 +39,7 @@ Machine/statistical Learning:
 
 #### Conor (weeks 1-3):
 
-* Lectures 1-3: Information theory
-* Lectures 4-5: Statistical theory
-* Lectures 6-9: Probabilistic brain
-
 #### Rui (weeks 4-7): Neural circuits and learning
-
-
-* Lecture 11: Different forms of learning
-* Lecture 12: Visual System: deep learning?
-* Lecture 13: Supervised learning and backprop
-* Lecture 14: Unsupervised learning
-* Lecture 15: Reinforcement Learning
-* Lecture 16: Recurrent neural networks
-* Lecture 17: RNNs and Brain vs machine
 
 #### Coursework (week 8-10):
 
@@ -60,10 +47,8 @@ Machine/statistical Learning:
 
 #### Revision week (week 11):
 
-* Lecture 20: Conor's revision
-* Lecture 21: Rui's revision
 
-#### Formative coursework:
+#### Formative labs:
 
 Rui: 1. Biological plausability of backprop
      2. Reinforcement learning: TD
