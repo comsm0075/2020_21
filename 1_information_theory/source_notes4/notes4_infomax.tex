@@ -64,9 +64,9 @@ knowing the sources; precisely, since ${\bf x}=WM{\bf s}$ we want $WM$
 to be a diagonal matrix multiplied by a permutation matrix, we do not
 mind if unmixing changes the overall amplitude of the source, or if it
 reorders the sources. In this two-to-two example, that means
-\begin{equation} MW=\mbox{diag}\,(d_1,d_2) \end{equation} or
+\begin{equation} WM=\mbox{diag}\,(d_1,d_2) \end{equation} or
 \begin{equation}
-MW=\left(\begin{array}{cc}0&d_1\\d_2&0\end{array}\right)
+WM=\left(\begin{array}{cc}0&d_1\\d_2&0\end{array}\right)
 \end{equation} where $d_1$ and $d_2$ are real numbers. Hence:
 \begin{equation} {\bf s}\stackrel{\mbox{mixing}}{\longrightarrow}{\bf
 r}=M{\bf s}\stackrel{\mbox{unmixing}}{\longrightarrow}{\bf x}=W{\bf r}
@@ -238,7 +238,7 @@ Similarly
 These quantities: $r$, $y$ and, of course, $W$, are numbers we have
 access to, $W$ is a parameter, $r$ is the recorded signal, we can sample $r(t)$
 at a set of times to get a set of $r$'s and $y$ is a function of
-$s$. This means we can estimate these derivatives, giving the gradient
+$s$. This means we can estimate the derivatives, giving the gradient
 of $h$ at a point $(W,w)$ in the parameter space. This is a common
 situation in numerical optimization, we don't know the function and,
 here, it isn't even so easy to define, but we do know its
